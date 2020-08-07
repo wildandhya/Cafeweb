@@ -1,0 +1,63 @@
+/** @format */
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* sidebar */
+.sidebar {
+  text-align: center;
+}
+
+.sidebar-icon {
+  height: 70px;
+  border-bottom: 1px solid #eeeeee;
+}
+.sidebar-icon button {
+  background-color: white;
+  border: 0;
+  margin-top: 13px;
+}
+.sidebar .content-sidebar img {
+  padding-top: 30px;
+}
+
+/* food content */
+
+.food-content {
+  text-align: center;
+  border-bottom: 1px solid #eeeeee;
+}
+.food-header {
+  height: 70px;
+}
+.food-header h1 {
+  font-size: 26px;
+}
+.food-items {
+  background-color: rgba(190, 195, 202, 0.3);
+  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.food-items .card-img {
+}
+
+.card-img img {
+  padding-top: 10px;
+  width: 30%;
+}
+/* cart */
+.cart {
+  text-align: center;
+}
+
+.cart-header {
+  height: 70px;
+  border-bottom: 1px solid #eeeeee;
+  border-left: 1px solid #eeeeee;
+}
+.cart-header h1 {
+  font-size: 26px;
+  line-height: 70px;
+}
