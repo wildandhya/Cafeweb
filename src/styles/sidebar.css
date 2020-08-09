@@ -1,0 +1,19 @@
+/** @format */
+
+.sidebar {
+  text-align: center;
+}
+
+.sidebar-icon {
+  height: 70px;
+  border-bottom: 1px solid #eeeeee;
+}
+.sidebar-icon button {
+  background-color: white;
+  border: 0;
+  margin-top: 13px;
+}
+.sidebar .content-sidebar img {
+  padding-top: 30px;
+  width: auto;
+}

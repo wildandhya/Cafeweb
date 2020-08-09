@@ -3,23 +3,28 @@
 import React, { Fragment } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import Axios from "axios";
 
-import "../styles/Home.css";
-
+import "../styles/foodcontent.css";
+import API from "../services/api";
+//
 class FoodContent extends React.Component {
   state = {
     product: [],
   };
-
-  componentDidMount() {
-    Axios.get("http://localhost:8000/product").then((res) => {
-      console.log(res.data);
+  getProductApi = () => {
+    API.getProductItem().then((result) => {
       this.setState({
-        product: res.data,
+        product: result,
       });
     });
+  };
+  componentDidMount() {
+    this.getProductApi();
   }
+
+  addToCart = (data) => {
+    console.log(data);
+  };
   render() {
     return (
       <Fragment>
@@ -34,18 +39,16 @@ class FoodContent extends React.Component {
             </div>
           </div>
           <div className='food-items'>
-            <div className='card-img d-flex flex-wrap justify-content-between'>
+            <div className='card-img d-flex flex-wrap justify-content-around'>
               {this.state.product.map((product) => {
                 return (
-                  <>
-                    <img
-                      src={product.image}
-                      className='card-img-top'
-                      alt='...'
-                    />
-                    <h1></h1>
-                    <p className='card-text'></p>
-                  </>
+                  <Fragment>
+                    <figure onClick={this.addToCart}>
+                      <img className='foodImage' src={product.image} alt='' />
+                      <h1 className='foodName'>{product.menu}</h1>
+                      <p className='foodPrice'>Rp.{product.price}</p>
+                    </figure>
+                  </Fragment>
                 );
               })}
             </div>

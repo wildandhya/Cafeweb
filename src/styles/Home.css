@@ -4,60 +4,93 @@
   padding: 0;
   margin: 0;
 }
-
-/* sidebar */
-.sidebar {
-  text-align: center;
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
 }
 
-.sidebar-icon {
-  height: 70px;
-  border-bottom: 1px solid #eeeeee;
-}
-.sidebar-icon button {
-  background-color: white;
-  border: 0;
-  margin-top: 13px;
-}
-.sidebar .content-sidebar img {
-  padding-top: 30px;
+.modal-main {
+  position: fixed;
+  background: white;
+  width: 40%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-/* food content */
-
-.food-content {
-  text-align: center;
-  border-bottom: 1px solid #eeeeee;
-}
-.food-header {
-  height: 70px;
-}
-.food-header h1 {
-  font-size: 26px;
-}
-.food-items {
-  background-color: rgba(190, 195, 202, 0.3);
-  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.25);
+.display-block {
+  display: block;
 }
 
-.food-items .card-img {
+.display-none {
+  display: none;
 }
 
-.card-img img {
+.content-checkout {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1em;
+}
+
+.content-checkout h3 {
+  font-size: 1em;
+  margin: 0;
+}
+.content-checkout p {
+  font-size: 0.9em;
+  margin: 0;
+}
+
+.checkout-right {
+  text-align: left;
+}
+.checkout-right {
+  padding-left: 20px;
+}
+.checkout-left {
+  padding-right: 20px;
+  text-align: right;
+}
+
+.header,
+.receipt {
   padding-top: 10px;
-  width: 30%;
-}
-/* cart */
-.cart {
-  text-align: center;
 }
 
-.cart-header {
-  height: 70px;
-  border-bottom: 1px solid #eeeeee;
-  border-left: 1px solid #eeeeee;
+.menus {
+  padding-top: 20px;
 }
-.cart-header h1 {
-  font-size: 26px;
-  line-height: 70px;
+
+.price {
+  padding-top: 33px;
+}
+
+.total {
+  padding-top: 20px;
+}
+
+.payment {
+  display: flex;
+  padding-top: 40px;
+}
+
+.btn-add {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5vh;
+  margin-bottom: 3vh;
+}
+
+.btn-add .print {
+  background-color: #57cad5;
+  margin-bottom: 1vh;
+}
+
+.btn-add .email {
+  background-color: #f24f8a;
 }

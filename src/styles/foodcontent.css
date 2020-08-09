@@ -1,0 +1,38 @@
+/** @format */
+
+.food-content {
+  text-align: center;
+  border-bottom: 1px solid #eeeeee;
+}
+.food-header {
+  height: 70px;
+}
+.food-header h1 {
+  font-size: 26px;
+}
+.food-items {
+  background-color: rgba(190, 195, 202, 0.3);
+  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.25);
+  overflow: scroll;
+  max-height: 590px;
+}
+
+.card-img img {
+  padding: 20px 20px 0 20px;
+  width: 20vw;
+  height: 19vw;
+}
+
+.card-img h1 {
+  font-size: 1.5vw;
+  text-align: left;
+  padding: 7px 0 0 20px;
+  margin: 0;
+}
+
+.card-img p {
+  font-size: 1.3vw;
+  padding: 7px 0 0 20px;
+  text-align: left;
+  margin: 0;
+}

@@ -1,0 +1,56 @@
+/** @format */
+
+.cart {
+  text-align: center;
+}
+
+.cart-header {
+  height: 70px;
+  border-bottom: 1px solid #eeeeee;
+  border-left: 1px solid #eeeeee;
+}
+.cart-header h1 {
+  font-size: 26px;
+  line-height: 70px;
+}
+
+.cart-header .counter {
+  width: 2vw;
+  height: 2vw;
+  border-radius: 100%;
+  background-color: #57cad5;
+}
+
+.cart-header .counter p {
+  color: white;
+  text-align: center;
+}
+
+.btn-check {
+  text-align: center;
+  margin-top: 20vh;
+}
+.cart-empty img {
+  width: 20vw;
+}
+.cart-empty h3 {
+  font-size: 2vw;
+}
+.cart-empty p {
+  font-size: 1vw;
+  margin-bottom: 0;
+}
+.cart-content button {
+  color: white;
+  margin: 0px 2vw 0px 2vw;
+  border: none;
+}
+
+.cart-content .checkout {
+  background-color: #57cad5;
+  margin-bottom: 10px;
+}
+
+.cart-content .cancel {
+  background-color: #f24f8a;
+}
