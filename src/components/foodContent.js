@@ -2,44 +2,31 @@
 
 import React, { Fragment } from "react";
 
+import { useSelector } from "react-redux";
+
 import "../styles/foodcontent.css";
 
-//
-class FoodContent extends React.Component {
-  render() {
-    return (
-      <Fragment>
-        <div className='food-content'>
-          <div className='food-items'>
-            <div className='card-img d-flex flex-wrap justify-content-around'>
-              {this.props.data.map((item) => {
-                return (
-                  <figure key={item.id}>
-                    <img
-                      className='foodImage'
-                      src={item.image}
-                      alt=''
-                      onClick={() =>
-                        this.props.addToCart(
-                          item.id,
-                          item.menu,
-                          item.price,
-                          item.image,
-                          item.qty
-                        )
-                      }
-                    />
-                    <h1 className='foodName'>{item.menu}</h1>
-                    <p className='foodPrice'>Rp.{item.price}</p>
-                  </figure>
-                );
-              })}
-            </div>
+const FoodContent = () => {
+  const product = useSelector((state) => state.product.data);
+  return (
+    <Fragment>
+      <div className='food-content'>
+        <div className='food-items'>
+          <div className='card-img d-flex flex-wrap justify-content-around'>
+            {product.map((item) => {
+              return (
+                <div className='card-food' key={item.id}>
+                  <img src={item.image} alt={item.menu} />
+                  <h1>{item.menu}</h1>
+                  <p>Rp.{item.price}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
-      </Fragment>
-    );
-  }
-}
+      </div>
+    </Fragment>
+  );
+};
 
 export default FoodContent;

@@ -1,7 +1,7 @@
 /** @format */
 
-export const getAllProductAction = "GET_ALL_PRODUCT";
+export const getAllProduct = "GET_ALL_PRODUCT";
 
 export const pending = "_PENDING";
-export const fullfilled = "_FULLFILLED";
+export const fulfilled = "_FULFILLED";
 export const rejected = "_REJECTED";

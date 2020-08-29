@@ -2,6 +2,8 @@
 
 import Axios from "axios";
 
-export default function getAllProduct() {
-  return Axios.get("http://localhost:8000/page?page=1&limit=9");
-}
+const getProductApi = () => {
+  return Axios.get("http://localhost:8000/product");
+};
+
+export default getProductApi;

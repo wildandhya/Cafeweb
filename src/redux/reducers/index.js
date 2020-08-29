@@ -1,10 +1,10 @@
 /** @format */
 import { combineReducers } from "redux";
 
-import { getProductReducer } from "./api";
+import { getProductReducer } from "./productReducer";
 
 const rootReducers = combineReducers({
-  getAllProduct: getProductReducer,
+  product: getProductReducer,
 });
 
 export default rootReducers;

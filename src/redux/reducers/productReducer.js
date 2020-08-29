@@ -1,38 +1,39 @@
 /** @format */
 
 import {
-  getAllProductAction,
+  getAllProduct,
   pending,
-  fullfilled,
+  fulfilled,
   rejected,
 } from "../action/actionType";
 
-const initialstate = {
+const initialState = {
   data: [],
   error: "",
-  isPending: false,
+  isPanding: false,
+  isFulfilled: false,
   isRejected: false,
-  isFullfilled: false,
 };
 
-export const getProductReducer = (state = initialstate, { type, payload }) => {
+export const getProductReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case getAllProductAction + pending:
+    case getAllProduct + pending:
       return {
         ...state,
         isPending: true,
       };
-    case getAllProductAction + rejected:
+    case getAllProduct + rejected:
       return {
         ...state,
         isRejected: true,
         error: payload,
         isPending: false,
       };
-    case getAllProductAction + fullfilled:
+    case getAllProduct + fulfilled:
       return {
-        data: payload,
-        isFullfilled: true,
+        ...state,
+        isFulfilled: true,
+        data: payload.data.data,
         isPending: false,
       };
     default:
