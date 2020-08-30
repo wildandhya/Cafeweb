@@ -2,23 +2,22 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import {Provider} from 'react-redux'
+import CafeRouter from "./appRoute";
+import store from './redux/store'
 
-import Home from "./pages/Home";
-import History from "./pages/History";
 
-const CafeRouter = () => {
-  return (
-    <Router>
-      <Route path='/' exact component={Home} />
-      <Route path='/history' component={History} />
-    </Router>
-  );
-};
+const AppRedux = () =>{
+  return(
+    <Provider store={store}>
+      <CafeRouter/>
+    </Provider>
+  )
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <CafeRouter />
+    <AppRedux />
   </React.StrictMode>,
   document.getElementById("root")
 );
