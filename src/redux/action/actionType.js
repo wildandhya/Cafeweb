@@ -9,3 +9,7 @@ export const rejected = '_REJECTED'
 export const addToCart = 'ADD_TO_CART'
 
 export const deleteMenuAdded = 'DELETE_MENU'
+
+export const increase = 'INCREASE'
+
+export const decrease = 'DECREASE'

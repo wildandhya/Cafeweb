@@ -1,8 +1,6 @@
 /** @format */
 
 import React, { Fragment} from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 
 import {connect, useDispatch}from 'react-redux'
@@ -11,26 +9,44 @@ import {addMenu, deleteMenu} from '../redux/action/cart'
 
 import "../styles/foodcontent.css";
 
-const FoodContent = ({product, addToCart}) => {
+const FoodContent = ({product, cart}) => {
+
+  const dispatch = useDispatch()
+
+  const addToCart = (id, menu, price, image)=>{
+    const cartItem = cart 
+    let alreadyExist = false
+    cartItem.forEach(item => {
+        if(item.id === id){
+            alreadyExist = true;
+            item.qty++
+            
+        }
+          
+    });
+    if(!alreadyExist){
+       const cartData = {
+           id: id,
+           menu:menu,
+           price: price,
+           image:image,
+           qty:1
+       }
+        dispatch(addMenu(cartData))
+    }
+    
+  }
+  
   return (
     <Fragment>
       <div className='food-content'>
-        <div className='food-header d-flex align-items-center justify-content-between '>
-          <div className='flex-grow-2'>
-            <h1>Food Items</h1>
-          </div>
-          <div className=''>
-            <input type='text' placeholder='Seacrh'></input>
-            <FontAwesomeIcon icon={faSearch} size='2x' />
-          </div>
-        </div>
         <div className='food-items'>
           <div className='card-img d-flex flex-wrap justify-content-around'>
             {product.map(item => {
               return(
                 <>
                 <div key={item.id}>
-                  <img src={item.image} alt=''onClick={()=>addToCart(item.id, item.menu, item.price, item.image) }/>
+                  <img src={item.image} alt=''onClick={()=> addToCart(item.id, item.menu, item.price, item.image) }/>
                   <h1>{item.menu}</h1>
                   <p>Rp.{item.price}</p>
                 </div>
@@ -47,17 +63,10 @@ const FoodContent = ({product, addToCart}) => {
 
 const mapStateToProps = (state) => {
   return {
-    product: state.product.data
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addToCart: () => {
-      dispatch(addMenu())
-    }
+    product: state.product.data,
+    cart: state.cart.data
   }
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(FoodContent) 
+export default connect(mapStateToProps)(FoodContent) 

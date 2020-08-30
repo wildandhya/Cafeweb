@@ -1,0 +1,35 @@
+.login{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.login-wrapp{ 
+    width: 300px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+}
+
+.username{
+    display: flex;
+    flex-direction: column;
+}
+
+.label-username, .label-password{
+    align-self: flex-start;
+}
+
+button{
+    margin-top: 20px;
+    color: white;
+    background-color: #57cad5;
+    border: none;
+}
+
+
+.password{
+    display: flex;
+    flex-direction: column;
+}

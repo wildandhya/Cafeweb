@@ -12,6 +12,7 @@ import "../styles/Home.css";
 import Cart from "../components/cart";
 import Sidebar from "../components/sidebar";
 import FoodContent from "../components/foodContent";
+import Header from "../components/header";
 // import { getProductAction } from "../redux/action/product";
 
 class Home extends React.Component {
@@ -23,15 +24,23 @@ class Home extends React.Component {
       <Fragment>
         <div className='container-fluid'>
           <div className='row'>
-            <div className='col-1 col-md- p-0'>
-              <Sidebar />
-            </div>
-            <div className='col-8 col-md-8 p-0'>
-              <button></button>
-              <FoodContent />
+            <div className='col-9 col-md- p-0'>
+              <Header />
+              <div className='row'>
+                <div className='col-1'>
+                  <Sidebar />
+                </div>
+                <div className='col-11 p-0'>
+                  <FoodContent
+                   
+                  />
+                </div>
+              </div>
             </div>
             <div className='col-3 col-md-3 p-0'>
-              <Cart />
+              <Cart
+               
+              />
             </div>
           </div>
         </div>
