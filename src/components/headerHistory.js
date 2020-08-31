@@ -1,22 +1,21 @@
-import React from 'react'
+/** @format */
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
 
-const HistoryHeader = () =>{
-    return (
-        <div className="header">
-            <div className='row'>
-                <div className='col-2'>
-                    <button>
-                        <FontAwesomeIcon icon={faBars} size='2x' />
-                    </button>
-                </div>
-                <div className='col-10'>
-                    <h1>History</h1>
-                </div>
-            </div>
+import "../styles/headerHistory.css";
+
+const HistoryHeader = () => {
+  return (
+    <div className='header'>
+      <div className='row'>
+        <div className='col-1'>
+          <img src='../../images/icon/menu (1).png' alt='menu' />
         </div>
-    )
-}
-export default HistoryHeader
+        <div className='col-10'>
+          <h1>History</h1>
+        </div>
+      </div>
+    </div>
+  );
+};
+export default HistoryHeader;

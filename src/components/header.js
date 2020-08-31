@@ -1,7 +1,8 @@
+/** @format */
+
 import React from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import "../styles/header.css";
@@ -11,9 +12,7 @@ class Header extends React.Component {
     return (
       <>
         <div className='header d-flex align-items-center justify-content-between '>
-          <button>
-            <FontAwesomeIcon icon={faBars} size='2x' />
-          </button>
+          <img src='../../images/icon/menu (1).png' alt='menu' />
           <div className='header-title'>
             <h1>Food Items</h1>
           </div>

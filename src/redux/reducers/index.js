@@ -1,15 +1,15 @@
-import {combineReducers} from 'redux'
+/** @format */
 
-import getProductReducer from './productReducer'
-import cartReducer from './cart'
+import { combineReducers } from "redux";
 
+import getProductReducer from "./productReducer";
+import cartReducer from "./cart";
+import historyReducer from "./history";
 
+const rootReducers = combineReducers({
+  product: getProductReducer,
+  cart: cartReducer,
+  history: historyReducer,
+});
 
- const rootReducers = combineReducers({
-    product: getProductReducer,
-    cart:cartReducer
-    
-})
-
-
-export default rootReducers
+export default rootReducers;

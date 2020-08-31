@@ -2,6 +2,7 @@
 
 .sidebar {
   text-align: center;
+  border-top: none;
 }
 
 .sidebar-icon {

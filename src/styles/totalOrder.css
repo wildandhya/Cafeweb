@@ -1,0 +1,60 @@
+/** @format */
+
+.card-group {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-blue,
+.card-violet {
+  margin: 20px;
+  width: 20vw;
+  height: 20vh;
+  border-radius: 10px;
+}
+.card-pink {
+  margin: 20px;
+  width: 20vw;
+  height: 20vh;
+  border-radius: 10px;
+}
+
+.card-pink {
+  background: linear-gradient(
+    285.38deg,
+    #fbb2b4 30.05%,
+    rgba(255, 143, 178, 0) 133.19%
+  );
+  filter: drop-shadow(10px 15px 10px rgba(255, 143, 178, 0.25));
+}
+
+.card-blue {
+  background: linear-gradient(
+    285.38deg,
+    #29dfff 30.05%,
+    rgba(41, 223, 255, 0) 133.19%
+  );
+  filter: drop-shadow(10px 15px 10px rgba(41, 223, 255, 0.25));
+}
+
+.card-violet {
+  background: linear-gradient(
+    285.38deg,
+    #ab84c8 30.05%,
+    rgba(241, 201, 236, 0) 133.19%
+  );
+  filter: drop-shadow(10px 15px 10px rgba(241, 201, 236, 0.25));
+}
+
+.card-group .title {
+  font-size: 13px;
+  padding: 40px 0 0 25px;
+}
+
+.card-group .title p,
+h2 {
+  margin: 5px;
+}
+.card-group .title h2 {
+  font-size: 2vw;
+}

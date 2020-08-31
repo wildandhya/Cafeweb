@@ -1,34 +1,43 @@
 /** @format */
 
-import React, {Fragment} from "react";
-import Sidebar from '../components/sidebar'
-import HistoryHeader from '../components/headerHistory'
-import TotalOrder from '../components/totalOrder'
-import Chart from '../components/chart'
-import RecentOrder from '../components/recentOrder'
+import React, { Fragment } from "react";
+import { connect } from "react-redux";
 
-import '../styles/history.css'
+import Sidebar from "../components/sidebar";
+import HistoryHeader from "../components/headerHistory";
+import TotalOrder from "../components/totalOrder";
+import Chart from "../components/chart";
+import RecentOrder from "../components/recentOrder";
 
+import {
+  getIncomeToday,
+  getOrderByWeek,
+  getIncomeByYear,
+} from "../redux/action/history";
 
+import "../styles/history.css";
 
-
-const History = ()=>{
-    return(
+class History extends React.Component {
+  componentDidMount() {
+    this.props.incomeToday();
+    this.props.orderByWeek();
+    this.props.incomeByYear();
+  }
+  render() {
+    return (
       <Fragment>
         <div className='container-fluid'>
           <div className='row'>
-            <div className='col-9 col-md- p-0'>
-              <HistoryHeader />
-              <div className='row'>
-                <div className='col-1'>
-                  <Sidebar/>
-                </div>
-                <div className='col-11 p-0'>
-                  <div className='content'>
-                    <TotalOrder/>
-                    <Chart/>
-                    <RecentOrder/>
-                  </div>
+            <HistoryHeader />
+            <div className='row'>
+              <div className='col-1'>
+                <Sidebar />
+              </div>
+              <div className='col-11 p-0'>
+                <div className='content'>
+                  <TotalOrder />
+                  <Chart />
+                  <RecentOrder />
                 </div>
               </div>
             </div>
@@ -36,7 +45,26 @@ const History = ()=>{
         </div>
       </Fragment>
     );
-  
+  }
 }
 
-export default History;
+const mapStateToProps = (state) => {
+  return {
+    history: state.history.data,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    incomeToday: () => {
+      dispatch(getIncomeToday());
+    },
+    orderByWeek: () => {
+      dispatch(getOrderByWeek());
+    },
+    incomeByYear: () => {
+      dispatch(getIncomeByYear());
+    },
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(History);

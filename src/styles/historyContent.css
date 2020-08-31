@@ -1,293 +1,240 @@
+/** @format */
+
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-
 nav {
-    height: 60px;
-    text-align: center;
-
+  height: 60px;
+  text-align: center;
 }
 
 nav h3 {
-    line-height: 60px;
+  line-height: 60px;
 }
 
 /* sidebar */
 .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-}
-
-.sidebar {
-    border-top: 1px solid #cecece;
-    width: 70px;
-    text-align: center;
-}
-
-.sidebar a img {
-    margin: 30px 0px;
-    width: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .history {
-    box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.25);
-    background-color: rgba(190, 195, 202, 0.3);
-    width: 100%;
-    overflow: scroll;
-    max-height: 540px;
+  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.25);
+  background-color: rgba(190, 195, 202, 0.3);
+  width: 100%;
+  overflow: scroll;
+  max-height: 540px;
 }
 
 /*  */
 /* card */
-.history .card-group {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 20px;
-}
-
-.history .card-group .card-pink,
-.card-blue,
-.card-violet {
-    margin: 20px;
-    width: 290px;
-    height: 170px;
-    border-radius: 10px;
-}
-
-.card-pink {
-    background: linear-gradient(285.38deg, #fbb2b4 30.05%, rgba(255, 143, 178, 0)133.19%);
-    filter: drop-shadow(10px 15px 10px rgba(255, 143, 178, 0.25));
-}
-
-.card-blue {
-    background: linear-gradient(285.38deg, #29dfff 30.05%, rgba(41, 223, 255, 0)133.19%);
-    filter: drop-shadow(10px 15px 10px rgba(41, 223, 255, 0.25));
-}
-
-.card-violet {
-    background: linear-gradient(285.38deg, #ab84c8 30.05%, rgba(241, 201, 236, 0)133.19%);
-    filter: drop-shadow(10px 15px 10px rgba(241, 201, 236, 0.25));
-}
-
-.card-group .title {
-    font-size: 13px;
-    padding: 40px 0 0 25px;
-}
-
-.card-group .title p,
-h2 {
-    margin: 5px;
-}
-
 .chart,
 .recent-order {
-    background-color: white;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    width: 1036px;
-    margin: 40px 63px 40px 63px;
+  background-color: white;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  width: 1036px;
+  margin: 40px 63px 40px 63px;
 }
 
 .chart-caption,
 .recent-caption {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .chart-caption h3 {
-    margin: 20px 0px 0px 20px;
+  margin: 20px 0px 0px 20px;
 }
 
 .chart-caption select {
-    width: 90px;
-    height: 25px;
-    background-color: #cecece;
-    border-radius: 10px;
-    margin: 20px 20px 0px 0px;
+  width: 90px;
+  height: 25px;
+  background-color: #cecece;
+  border-radius: 10px;
+  margin: 20px 20px 0px 0px;
 }
 
 .chart-caption select option {
-    font-size: 10px;
+  font-size: 10px;
 }
 
 .tabel {
-    display: flex;
+  display: flex;
 }
 
 .tabel .list-price {
-    font-size: 13px;
-    color: #cecece;
-    padding: 20px 0 20px 20px;
+  font-size: 13px;
+  color: #cecece;
+  padding: 20px 0 20px 20px;
 }
 
 .price-content {
-    border-right: 1px solid #cecece;
+  border-right: 1px solid #cecece;
 }
 
 .list-price p {
-    padding-bottom: 6px;
-    padding-right: 4px;
+  padding-bottom: 6px;
+  padding-right: 4px;
 }
 
 .month-list {
-    display: flex;
-    border-bottom: 1px solid #cecece;
-    padding: 0px 0px 0px 2px;
-    margin-bottom: 20px;
+  display: flex;
+  border-bottom: 1px solid #cecece;
+  padding: 0px 0px 0px 2px;
+  margin-bottom: 20px;
 }
 
 .month-chart {
-    align-self: flex-end;
-    display: flex;
-    padding-right: 20px;
+  align-self: flex-end;
+  display: flex;
+  padding-right: 20px;
 }
 
 .month-chart .this-1 {
-    background-color: #29dfff;
-    height: 30px;
-    align-self: flex-end;
+  background-color: #29dfff;
+  height: 30px;
+  align-self: flex-end;
 }
 
 .month-chart .last-1 {
-    background-color: #fbb2b4;
-    height: 45px;
-
+  background-color: #fbb2b4;
+  height: 45px;
 }
 
 .this-2 {
-    background-color: #29dfff;
-    height: 60px;
-    align-self: flex-end;
+  background-color: #29dfff;
+  height: 60px;
+  align-self: flex-end;
 }
 
 .last-2 {
-    background-color: #fbb2b4;
-    height: 80px;
-    align-self: flex-end;
+  background-color: #fbb2b4;
+  height: 80px;
+  align-self: flex-end;
 }
 
 .this-3 {
-    background-color: #29dfff;
-    height: 45px;
-    align-self: flex-end;
+  background-color: #29dfff;
+  height: 45px;
+  align-self: flex-end;
 }
 
 .last-3 {
-    background-color: #fbb2b4;
-    height: 30px;
-    align-self: flex-end;
+  background-color: #fbb2b4;
+  height: 30px;
+  align-self: flex-end;
 }
 
 .this-4 {
-    background-color: #29dfff;
-    height: 80px;
-    align-self: flex-end;
+  background-color: #29dfff;
+  height: 80px;
+  align-self: flex-end;
 }
 
 .last-4 {
-    background-color: #fbb2b4;
-    height: 90px;
-    align-self: flex-end;
+  background-color: #fbb2b4;
+  height: 90px;
+  align-self: flex-end;
 }
 
 .this-5 {
-    background-color: #29dfff;
-    height: 110px;
-    align-self: flex-end;
+  background-color: #29dfff;
+  height: 110px;
+  align-self: flex-end;
 }
 
 .last-5 {
-    background-color: #fbb2b4;
-    height: 100px;
-    align-self: flex-end;
+  background-color: #fbb2b4;
+  height: 100px;
+  align-self: flex-end;
 }
 
 .this-6 {
-    background-color: #29dfff;
-    height: 45px;
-    align-self: flex-end;
+  background-color: #29dfff;
+  height: 45px;
+  align-self: flex-end;
 }
 
 .last-6 {
-    background-color: #fbb2b4;
-    height: 43px;
-    align-self: flex-end;
+  background-color: #fbb2b4;
+  height: 43px;
+  align-self: flex-end;
 }
 
 .this-7 {
-    background-color: #29dfff;
-    height: 135px;
-    align-self: flex-end;
+  background-color: #29dfff;
+  height: 135px;
+  align-self: flex-end;
 }
 
 .last-7 {
-    background-color: #fbb2b4;
-    height: 95px;
-    align-self: flex-end;
+  background-color: #fbb2b4;
+  height: 95px;
+  align-self: flex-end;
 }
 
 .this-8 {
-    background-color: #29dfff;
-    height: 80px;
-    align-self: flex-end;
+  background-color: #29dfff;
+  height: 80px;
+  align-self: flex-end;
 }
 
 .last-8 {
-    background-color: #fbb2b4;
-    height: 132px;
-    align-self: flex-end;
+  background-color: #fbb2b4;
+  height: 132px;
+  align-self: flex-end;
 }
 
 .this-9 {
-    background-color: #29dfff;
-    height: 132px;
-    align-self: flex-end;
+  background-color: #29dfff;
+  height: 132px;
+  align-self: flex-end;
 }
 
 .last-9 {
-    background-color: #fbb2b4;
-    height: 50px;
-    align-self: flex-end;
+  background-color: #fbb2b4;
+  height: 50px;
+  align-self: flex-end;
 }
 
 .this-10 {
-    background-color: #29dfff;
-    height: 72px;
-    align-self: flex-end;
+  background-color: #29dfff;
+  height: 72px;
+  align-self: flex-end;
 }
 
 .last-10 {
-    background-color: #fbb2b4;
-    height: 40px;
-    align-self: flex-end;
+  background-color: #fbb2b4;
+  height: 40px;
+  align-self: flex-end;
 }
 
 .this-11 {
-    background-color: #29dfff;
-    height: 100px;
-    align-self: flex-end;
+  background-color: #29dfff;
+  height: 100px;
+  align-self: flex-end;
 }
 
 .last-11 {
-    background-color: #fbb2b4;
-    height: 80px;
-    align-self: flex-end;
+  background-color: #fbb2b4;
+  height: 80px;
+  align-self: flex-end;
 }
 
 .this-12 {
-    background-color: #29dfff;
-    height: 80px;
-    align-self: flex-end;
+  background-color: #29dfff;
+  height: 80px;
+  align-self: flex-end;
 }
 
 .last-12 {
-    background-color: #fbb2b4;
-    height: 50px;
-    align-self: flex-end;
+  background-color: #fbb2b4;
+  height: 50px;
+  align-self: flex-end;
 }
 
 .this-1,
@@ -314,274 +261,268 @@ h2 {
 .last-10,
 .last-11,
 .last-12 {
-    width: 27px;
-    border-radius: 5px;
+  width: 27px;
+  border-radius: 5px;
 }
 
 .chart-desc {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
 }
 
 .chart-desc p {
-    font-size: 10px;
+  font-size: 10px;
 }
 
 .chart-desc .this-year,
 .last-year {
-    padding-right: 20px;
-    display: flex;
+  padding-right: 20px;
+  display: flex;
 }
 
 .chart-desc .this-year span {
-    background-color: #29dfff;
-    width: 10px;
-    height: 10px;
+  background-color: #29dfff;
+  width: 10px;
+  height: 10px;
 }
 
 .chart-desc .last-year span {
-    background-color: #fbb2b4;
-    width: 10px;
-    height: 10px;
-    margin-right: 3px;
+  background-color: #fbb2b4;
+  width: 10px;
+  height: 10px;
+  margin-right: 3px;
 }
 
 /* recent order */
 .recent-caption select {
-    width: 90px;
-    height: 25px;
-    background-color: #cecece;
-    border-radius: 10px;
-    margin: 20px 20px 0px 0px;
+  width: 90px;
+  height: 25px;
+  background-color: #cecece;
+  border-radius: 10px;
+  margin: 20px 20px 0px 0px;
 }
 
 .recent-caption h3 {
-    margin: 20px 0px 0px 20px;
+  margin: 20px 0px 0px 20px;
 }
 
 /* table */
 table {
-    padding: 10px 20px 10px 10px;
-
+  padding: 10px 20px 10px 10px;
 }
 
 table th,
 td {
-    padding-right: 140px;
-    font-size: 10px;
+  padding-right: 140px;
+  font-size: 10px;
 }
 
 td {
-    color: #cecece;
-    padding-top: 7px;
-    border-top: 1px solid #cecece;
+  color: #cecece;
+  padding-top: 7px;
+  border-top: 1px solid #cecece;
 }
 
-@media(max-width:600px) {
-    .content {
-        height: 100%;
-    }
-
-    .history {
-        width: 100%;
-    }
-
-    .sidebar {
-        width: 30px;
-        height: 300px;
-    }
-
-    .sidebar a img {
-        margin: 20px 5px 5px 5px;
-        width: 20px;
-    }
-
-    .chart {
-        width: 295px;
-        margin: 20px 20px 20px 20px;
-    }
-
-    .recent-order {
-        width: 295px;
-        margin: 20px 20px 15px 20px;
-    }
-
-    .this-1,
-    .this-2,
-    .this-3,
-    .this-4,
-    .this-5,
-    .this-6,
-    .this-7,
-    .this-8,
-    .this-9,
-    .this-10,
-    .this-11,
-    .this-12,
-    .last-1,
-    .last-2,
-    .last-3,
-    .last-4,
-    .last-5,
-    .last-6,
-    .last-7,
-    .last-8,
-    .this-9,
-    .last-10,
-    .last-11,
-    .last-12 {
-        width: 5px;
-        border-radius: 5px;
-    }
-
-    .month-chart {
-        padding-right: 10px;
-    }
-
-    .tabel .list-price {
-        font-size: 8px;
-        color: #cecece;
-        padding: 30px 0 0px 10px;
-    }
-
-    .list-price p {
-        padding-bottom: 14px;
-        padding-right: 4px;
-    }
-
-    .month-list {
-        margin-bottom: 10px;
-    }
-
-    .history .card-group {
-        justify-content: space-evenly;
-    }
-
-    .history .card-group .card-pink,
-    .card-blue,
-    .card-violet {
-        margin: 5px 5px 10px 0px;
-        width: 90px;
-        height: 60px;
-        border-radius: 10px;
-    }
-
-    .card-group .title {
-        font-size: 5px;
-        padding: 10px 0 0 7px;
-    }
-
-    .card-group .title p,
-    h2 {
-        margin: 2px;
-    }
-
-    table th {
-        padding-right: 10px;
-        font-size: 10px;
-    }
-
-    table td {
-        padding-top: 2px;
-        padding-right: 1px;
-        font-size: 10px;
-    }
-
-    .chart-caption h3 {
-        margin: 20px 0px 0px 10px;
-        font-size: 10px;
-    }
-
-    .chart-caption select {
-        width: 50px;
-        height: 20px;
-        background-color: #cecece;
-        border-radius: 10px;
-        margin: 20px 20px 0px 0px;
-        font-size: 8px;
-    }
-
-    .recent-caption h3 {
-        margin: 20px 0px 0px 10px;
-        font-size: 10px;
-    }
-
-    .recent-caption select {
-        width: 50px;
-        height: 20px;
-        background-color: #cecece;
-        border-radius: 10px;
-        margin: 20px 20px 0px 0px;
-        font-size: 8px;
-    }
-
-
-
-}
-
-@media(max-width:768px) {
-    body {
-        height: 100%;
-    }
-
-    .sidebar a img {
-        width: 30px;
-        padding: 0px 10px 0px 10px;
-
-    }
-
-    .history .card-group {
-        justify-content: start;
-    }
-
-    .history .card-group .card-pink,
-    .card-blue,
-    .card-violet {
-        margin: 0px 0px 20px 20px;
-    }
-
-    .chart {
-        width: 920px;
-        margin: 20px 20px 20px 20px;
-    }
-
-    .recent-order {
-        width: 920px;
-        margin: 20px 20px 15px 20px;
-    }
-
-    table th,
-    td {
-        padding-right: 120px;
-        font-size: 10px;
-    }
-
-}
-
-@media(min-width:992) {
-    .history {
-        width: 100%;
-    }
-
-    .history .card-group {
-        display: flex;
-        justify-content: space-evenly;
-        margin-top: 20px;
-    }
-
-    .history .card-group .card-pink,
-    .card-blue,
-    .card-violet {
-        margin: 20px;
-        width: 290px;
-        height: 170px;
-        border-radius: 10px;
-    }
-
-    .chart,
-    .recent-order {
-        margin: 40px 63px 40px 63px;
-    }
-
-}
+/* @media (max-width: 600px) { */
+/* .content { */
+/* height: 100%; */
+/* } */
+/*  */
+/* .history { */
+/* width: 100%; */
+/* } */
+/*  */
+/* .sidebar { */
+/* width: 30px; */
+/* height: 300px; */
+/* } */
+/*  */
+/* .sidebar a img { */
+/* margin: 20px 5px 5px 5px; */
+/* width: 20px; */
+/* } */
+/*  */
+/* .chart { */
+/* width: 295px; */
+/* margin: 20px 20px 20px 20px; */
+/* } */
+/*  */
+/* .recent-order { */
+/* width: 295px; */
+/* margin: 20px 20px 15px 20px; */
+/* } */
+/*  */
+/* .this-1, */
+/* .this-2, */
+/* .this-3, */
+/* .this-4, */
+/* .this-5, */
+/* .this-6, */
+/* .this-7, */
+/* .this-8, */
+/* .this-9, */
+/* .this-10, */
+/* .this-11, */
+/* .this-12, */
+/* .last-1, */
+/* .last-2, */
+/* .last-3, */
+/* .last-4, */
+/* .last-5, */
+/* .last-6, */
+/* .last-7, */
+/* .last-8, */
+/* .this-9, */
+/* .last-10, */
+/* .last-11, */
+/* .last-12 { */
+/* width: 5px; */
+/* border-radius: 5px; */
+/* } */
+/*  */
+/* .month-chart { */
+/* padding-right: 10px; */
+/* } */
+/*  */
+/* .tabel .list-price { */
+/* font-size: 8px; */
+/* color: #cecece; */
+/* padding: 30px 0 0px 10px; */
+/* } */
+/*  */
+/* .list-price p { */
+/* padding-bottom: 14px; */
+/* padding-right: 4px; */
+/* } */
+/*  */
+/* .month-list { */
+/* margin-bottom: 10px; */
+/* } */
+/*  */
+/* .history .card-group { */
+/* justify-content: space-evenly; */
+/* } */
+/*  */
+/* .history .card-group .card-pink, */
+/* .card-blue, */
+/* .card-violet { */
+/* margin: 5px 5px 10px 0px; */
+/* width: 90px; */
+/* height: 60px; */
+/* border-radius: 10px; */
+/* } */
+/*  */
+/* .card-group .title { */
+/* font-size: 5px; */
+/* padding: 10px 0 0 7px; */
+/* } */
+/*  */
+/* .card-group .title p, */
+/* h2 { */
+/* margin: 2px; */
+/* } */
+/*  */
+/* table th { */
+/* padding-right: 10px; */
+/* font-size: 10px; */
+/* } */
+/*  */
+/* table td { */
+/* padding-top: 2px; */
+/* padding-right: 1px; */
+/* font-size: 10px; */
+/* } */
+/*  */
+/* .chart-caption h3 { */
+/* margin: 20px 0px 0px 10px; */
+/* font-size: 10px; */
+/* } */
+/*  */
+/* .chart-caption select { */
+/* width: 50px; */
+/* height: 20px; */
+/* background-color: #cecece; */
+/* border-radius: 10px; */
+/* margin: 20px 20px 0px 0px; */
+/* font-size: 8px; */
+/* } */
+/*  */
+/* .recent-caption h3 { */
+/* margin: 20px 0px 0px 10px; */
+/* font-size: 10px; */
+/* } */
+/*  */
+/* .recent-caption select { */
+/* width: 50px; */
+/* height: 20px; */
+/* background-color: #cecece; */
+/* border-radius: 10px; */
+/* margin: 20px 20px 0px 0px; */
+/* font-size: 8px; */
+/* } */
+/* } */
+/*  */
+/* @media (max-width: 768px) { */
+/* body { */
+/* height: 100%; */
+/* } */
+/*  */
+/* .sidebar a img { */
+/* width: 30px; */
+/* padding: 0px 10px 0px 10px; */
+/* } */
+/*  */
+/* .history .card-group { */
+/* justify-content: start; */
+/* } */
+/*  */
+/* .history .card-group .card-pink, */
+/* .card-blue, */
+/* .card-violet { */
+/* margin: 0px 0px 20px 20px; */
+/* } */
+/*  */
+/* .chart { */
+/* width: 920px; */
+/* margin: 20px 20px 20px 20px; */
+/* } */
+/*  */
+/* .recent-order { */
+/* width: 920px; */
+/* margin: 20px 20px 15px 20px; */
+/* } */
+/*  */
+/* table th, */
+/* td { */
+/* padding-right: 120px; */
+/* font-size: 10px; */
+/* } */
+/* } */
+/*  */
+/* @media (min-width: 992) { */
+/* .history { */
+/* width: 100%; */
+/* } */
+/*  */
+/* .history .card-group { */
+/* display: flex; */
+/* justify-content: space-evenly; */
+/* margin-top: 20px; */
+/* } */
+/*  */
+/* .history .card-group .card-pink, */
+/* .card-blue, */
+/* .card-violet { */
+/* margin: 20px; */
+/* width: 290px; */
+/* height: 170px; */
+/* border-radius: 10px; */
+/* } */
+/*  */
+/* .chart, */
+/* .recent-order { */
+/* margin: 40px 63px 40px 63px; */
+/* } */
+/* } */
+/*  */
