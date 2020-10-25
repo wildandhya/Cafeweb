@@ -4,9 +4,9 @@ import React, { Fragment } from "react";
 
 import { connect, useDispatch } from "react-redux";
 
-import { addMenu } from "../redux/action/cart";
+import { addMenu } from "../../redux/action/cart";
 
-import "../styles/foodcontent.css";
+import "../../styles/foodcontent.css";
 
 const FoodContent = ({ product, cart }) => {
   const dispatch = useDispatch();

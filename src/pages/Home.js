@@ -1,8 +1,8 @@
 /** @format */
 
-import React, { Fragment, } from "react";
+import React, { Fragment, useEffect } from "react";
 
-import {connect} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {fetchProduct} from '../redux/action/productAction'
 
 import "../styles/sidebar.css";
@@ -11,16 +11,17 @@ import "../styles/cart.css";
 import "../styles/Home.css";
 import Cart from "../components/cart";
 import Sidebar from "../components/sidebar";
-import FoodContent from "../components/foodContent";
-import Header from "../components/header";
-// import { getProductAction } from "../redux/action/product";
+import FoodContent from "../components/home/foodContent";
+import Header from "../components/home/header";
 
-class Home extends React.Component {
-  componentDidMount(){
-    this.props.getProduct()
-  }
-  render(){
-    return (
+const Home = ()=> {
+
+  const dispatch = useDispatch()
+
+  useEffect(()=>{
+    dispatch(fetchProduct())
+  },[])
+      return (
       <Fragment>
         <div className='container-fluid'>
           <div className='row'>
@@ -38,27 +39,12 @@ class Home extends React.Component {
               </div>
             </div>
             <div className='col-3 col-md-3 p-0'>
-              <Cart
-               
-              />
+              <Cart/>
             </div>
           </div>
         </div>
       </Fragment>
     );
   }
-}
-const mapStateToProps = (state) => {
-  return {
-    product: state.product
-  }
-}
- const mapDispatchToProps = (dispatch) => {
-   return {
-     getProduct: () => dispatch(fetchProduct())
-     
-   }
- }
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default Home

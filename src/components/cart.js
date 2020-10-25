@@ -3,13 +3,15 @@
 import React, { } from "react";
 
 // import Modal from "../components/addmodal";
-import {connect, useDispatch} from 'react-redux'
+import { useDispatch, useSelector} from 'react-redux'
 
 import "../styles/cart.css";
 import { plusBtn, minusBtn } from "../redux/action/cart";
 
 
-const Cart = ({cart}) =>{
+const Cart = () =>{
+
+  const cart = useSelector(state => state.cart.data)
   const dispatch = useDispatch()
 
 
@@ -29,7 +31,7 @@ const Cart = ({cart}) =>{
         <div className='cart'>
           <div className='cart-header'>
             <h1>Cart</h1>
-          <span>{cart.length}</span>
+            <span className='badge'>{cart.length}</span>
           </div>
           {(() => {
             if (cart.length === 0) {
@@ -47,6 +49,7 @@ const Cart = ({cart}) =>{
               return (
                 <>
                   <div className='cart-items'>
+                    <div className='top-wrap'>
                     {cart.map((item) => {
                       return (
                         <div className='cart-content' key={item.id}>
@@ -63,26 +66,28 @@ const Cart = ({cart}) =>{
                               <button onClick={()=>increaseBtn(item.id)}>+</button>
                             </div>{" "}
                           </div>
-                          <h4 className='cart-price'>Rp.{item.qty * item.price}</h4>
+                          <h4 className='cart-price'>Rp {item.qty * item.price}</h4>
                         </div>
                       );
                     })}
+                    </div>
+                    <div className='bottom-wrap'>
                     <div className='total'>
-                      <div className='row'>
-                        <div className='col-7'>
-                          <h4 className=''>Total:</h4>
-                          <p>*belum Termasuk PPn %</p>
+                        <div className='title'>
+                          <h4 className='total-title'>Total:</h4>
+                          <h4 className='total-title'> Rp {cart.reduce((total, item) => {
+                            return total + item.price * item.qty;}, 0)}</h4>
+                         
                         </div>
-                        <div className='col-5'>
-                        <h4>{cart.reduce((total, item) => {
-                          return total + item.price * item.qty;}, 0)}</h4>
+                        <div className='ppn-wrap'>
+                        <p className='ppn'>*belum Termasuk PPn %</p>
                         </div>
                       </div>
-                    </div>
                     <div className='btn-checkout'>
                       <button className='checkout'>Checkout</button>
                       <button className='cancel'>Cancel</button>
                     </div>
+                  </div>
                   </div>
                 </>
               );
@@ -92,10 +97,5 @@ const Cart = ({cart}) =>{
     );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    cart: state.cart.data
-  }
-}
 
-export default connect(mapStateToProps)(Cart);
+export default Cart;

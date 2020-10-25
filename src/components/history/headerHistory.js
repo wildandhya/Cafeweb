@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import "../styles/headerHistory.css";
+import "../../styles/headerHistory.css";
 
 const HistoryHeader = () => {
   return (

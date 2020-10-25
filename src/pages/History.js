@@ -4,10 +4,10 @@ import React, { Fragment } from "react";
 import { connect } from "react-redux";
 
 import Sidebar from "../components/sidebar";
-import HistoryHeader from "../components/headerHistory";
-import TotalOrder from "../components/totalOrder";
-import Chart from "../components/chart";
-import RecentOrder from "../components/recentOrder";
+import HistoryHeader from "../components/history/headerHistory";
+import TotalOrder from "../components/history/totalOrder";
+import Chart from "../components/history/chart";
+import RecentOrder from "../components/history/recentOrder";
 
 import {
   getIncomeToday,

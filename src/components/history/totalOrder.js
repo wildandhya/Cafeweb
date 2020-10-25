@@ -4,7 +4,7 @@ import React from "react";
 
 import { connect } from "react-redux";
 
-import "../styles/totalOrder.css";
+import "../../styles/totalOrder.css";
 
 const TotalOrder = ({ history }) => {
   return (

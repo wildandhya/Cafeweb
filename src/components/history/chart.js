@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import "../styles/historyContent.css";
+import "../../styles/historyContent.css";
 
 const Chart = () => {
   return (
