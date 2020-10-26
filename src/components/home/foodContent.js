@@ -49,7 +49,7 @@ const FoodContent = ({ product, cart }) => {
                       }
                     />
                     <h1>{item.menu}</h1>
-                    <p>Rp.{item.price}</p>
+                    <p>Rp.{item.price.toLocaleString("id-ID")}</p>
                   </div>
                 </>
               );

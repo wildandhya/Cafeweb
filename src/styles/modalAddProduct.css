@@ -1,0 +1,43 @@
+/** @format */
+
+.modal-hide-border {
+  border: none;
+}
+.cancelModal {
+  background-color: #f24f8a;
+  width: 8vw;
+}
+
+.addModal {
+  background-color: #57cad5;
+  width: 8vw;
+}
+
+.label-title {
+  font-size: 1vmax;
+  color: black;
+  font-weight: bold;
+}
+
+.input-name {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.input-image {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.input-price {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  width: 20vw;
+}
+
+.input-category {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  width: 10vw;
+}
+
+::placeholder {
+  color: red;
+  font-size: 1vmax;
+}

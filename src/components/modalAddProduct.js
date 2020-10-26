@@ -1,41 +1,72 @@
 /** @format */
 
 import React from "react";
+import { Button, Modal, Form, Row } from "react-bootstrap";
+import Col from "react-bootstrap/Col";
 
-const modalAddProduct = () => {
+import "../styles/modalAddProduct.css";
+
+const modalAddProduct = (props) => {
   return (
-    <div className='container'>
-      <div class='modal' tabindex='-1' role='dialog'>
-        <div class='modal-dialog' role='document'>
-          <div class='modal-content'>
-            <div class='modal-header'>
-              <h5 class='modal-title'>Modal title</h5>
-              <button
-                type='button'
-                class='close'
-                data-dismiss='modal'
-                aria-label='Close'>
-                <span aria-hidden='true'>&times;</span>
-              </button>
-            </div>
-            <div class='modal-body'>
-              <p>Modal body text goes here.</p>
-            </div>
-            <div class='modal-footer'>
-              <button type='button' class='btn btn-primary'>
-                Save changes
-              </button>
-              <button
-                type='button'
-                class='btn btn-secondary'
-                data-dismiss='modal'>
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Modal
+      show={props.showModal}
+      onHide={props.handleCloseModal}
+      keyboard={false}
+      backdrop='static'
+      centered>
+      <Modal.Header className='modal-hide-border'>
+        <Modal.Title>Add Item</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <Form>
+          <Form.Group as={Row}>
+            <Form.Label column sm='2' className='label-title'>
+              Name
+            </Form.Label>
+            <Col sm='10'>
+              <Form.Control type='' placeholder='' className='input-name' />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row}>
+            <Form.Label column sm='2' className='label-title'>
+              Image
+            </Form.Label>
+            <Col sm='10'>
+              <Form.Control type='' placeholder='' className='input-image' />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row}>
+            <Form.Label column sm='2' className='label-title'>
+              Price
+            </Form.Label>
+            <Col sm='10'>
+              <Form.Control type='' placeholder='' className='input-price' />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row}>
+            <Form.Label column sm='2' className='label-title'>
+              Category
+            </Form.Label>
+            <Col sm='10'>
+              <Form.Control
+                as='select'
+                defaultValue='Category'
+                className='input-category'>
+                <option>Category</option>
+                <option>Drink</option>
+                <option>Food</option>
+              </Form.Control>
+            </Col>
+          </Form.Group>
+        </Form>
+      </Modal.Body>
+      <Modal.Footer className='modal-hide-border'>
+        <Button className='cancelModal' onClick={props.handleCloseModal}>
+          Cancel
+        </Button>
+        <Button className='addModal'>Add</Button>
+      </Modal.Footer>
+    </Modal>
   );
 };
 
