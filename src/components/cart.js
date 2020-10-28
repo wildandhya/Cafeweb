@@ -1,16 +1,21 @@
 /** @format */
 
-import React from "react";
+import React, { useState } from "react";
 
-import { Badge } from "react-bootstrap";
+import { Badge, Button } from "react-bootstrap";
 
 // import Modal from "../components/addmodal";
 import { useDispatch, useSelector } from "react-redux";
 
 import "../styles/cart.css";
 import { plusBtn, minusBtn } from "../redux/action/cart";
+import CheckoutModal from "./modalCheckout";
 
 const Cart = () => {
+  const [showModal, setShowModal] = useState(false);
+  const handleShowModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
+
   const cart = useSelector((state) => state.cart.data);
   const dispatch = useDispatch();
 
@@ -43,7 +48,7 @@ const Cart = () => {
               />
               <h3>Your Cart is Empty</h3>
               <h6 className='empty-subtext'>
-                Please Add Some Items From the Menu
+                Please add some items from the menu
               </h6>
             </div>
           );
@@ -63,13 +68,13 @@ const Cart = () => {
                         <div className='mid'>
                           <h4 className='cart-title'>{item.menu}</h4>
                           <div className='btn-counter'>
-                            <button onClick={() => decreaseBtn(item.id)}>
+                            <Button onClick={() => decreaseBtn(item.id)}>
                               -
-                            </button>
+                            </Button>
                             <span>{item.qty}</span>
-                            <button onClick={() => increaseBtn(item.id)}>
+                            <Button onClick={() => increaseBtn(item.id)}>
                               +
-                            </button>
+                            </Button>
                           </div>{" "}
                         </div>
                         <h4 className='cart-price'>
@@ -96,9 +101,15 @@ const Cart = () => {
                     </div>
                   </div>
                   <div className='btn-checkout'>
-                    <button className='checkout'>Checkout</button>
-                    <button className='cancel'>Cancel</button>
+                    <Button className='checkout' onClick={handleShowModal}>
+                      Checkout
+                    </Button>
+                    <Button className='cancel'>Cancel</Button>
                   </div>
+                  <CheckoutModal
+                    showModal={showModal}
+                    handleCloseModal={handleCloseModal}
+                  />
                 </div>
               </div>
             </>

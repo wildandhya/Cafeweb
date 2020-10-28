@@ -1,6 +1,7 @@
 /** @format */
 
 export const getAllproduct = "GET_ALL_PRODUCT";
+export const addProduct = "ADD_PRODUCT";
 
 export const pending = "_PENDING";
 

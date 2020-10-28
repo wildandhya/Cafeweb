@@ -2,14 +2,18 @@
 
 import React, { Fragment } from "react";
 
-import { connect, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { addMenu } from "../../redux/action/cart";
 
 import "../../styles/foodcontent.css";
 
-const FoodContent = ({ product, cart }) => {
+const FoodContent = () => {
   const dispatch = useDispatch();
+
+  const { product } = useSelector((state) => state.product);
+
+  const cart = useSelector((state) => state.cart.data);
 
   const addToCart = (id, menu, price, image) => {
     const cartItem = cart;
@@ -43,6 +47,7 @@ const FoodContent = ({ product, cart }) => {
                   <div key={item.id}>
                     <img
                       src={item.image}
+                      className='food-img'
                       alt=''
                       onClick={() =>
                         addToCart(item.id, item.menu, item.price, item.image)
@@ -61,11 +66,4 @@ const FoodContent = ({ product, cart }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    product: state.product.data,
-    cart: state.cart.data,
-  };
-};
-
-export default connect(mapStateToProps)(FoodContent);
+export default FoodContent;

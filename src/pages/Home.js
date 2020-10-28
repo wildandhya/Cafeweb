@@ -1,9 +1,9 @@
 /** @format */
 
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
-import { useDispatch } from "react-redux";
-import { fetchProduct } from "../redux/action/productAction";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProduct } from "../redux/action/product";
 
 import "../styles/sidebar.css";
 import "../styles/foodcontent.css";
@@ -14,18 +14,38 @@ import Sidebar from "../components/sidebar";
 import FoodContent from "../components/home/foodContent";
 import Header from "../components/home/header";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Home = () => {
   const dispatch = useDispatch();
 
+  const { uploadMenu } = useSelector((state) => state.product);
+
+  // const [show, setShow] = useState(false);
+
   useEffect(() => {
     dispatch(fetchProduct());
-  }, [dispatch]);
+    if (uploadMenu === true) {
+      toast("Upload Product Success", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        className: "toast",
+      });
+    }
+  }, [dispatch, uploadMenu]);
   return (
     <Fragment>
       <div className='container-fluid'>
         <div className='row'>
           <div className='col-9 col-md- p-0'>
             <Header />
+            <ToastContainer />
             <div className='row'>
               <div className='col-1'>
                 <Sidebar />

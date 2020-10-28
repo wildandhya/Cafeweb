@@ -1,17 +1,34 @@
-import Axios from 'axios'
+/** @format */
 
-export const getProductApi = ()=>{
-    return Axios.get('http://localhost:8000/product')
-}
+import Axios from "axios";
 
+export const getProductApi = () => {
+  return Axios.get("http://localhost:8000/product");
+};
 
-export const incomeToday = ()=>{
-    return Axios.get('http://localhost:8000/history/income-today')
-}
-export const orderByWeek = ()=>{
-    return Axios.get('http://localhost:8000/history/order-week')
-}
-export const incomeByYear = ()=>{
-    return Axios.get('http://localhost:8000/history/income-year')
-}
+export const addProductApi = (menu, image, price, category_id) => {
+  let data = new FormData();
+  data.append("menu", menu);
+  data.append("image", image);
+  data.append("price", price);
+  data.append("category_id", category_id);
 
+  const config = {
+    headers: {
+      "content-type": "multipart/form-data",
+      // "x-access-token":
+      // "Bearer toke",
+    },
+  };
+  return Axios.post("http://localhost:8000/product", data, config);
+};
+
+export const incomeToday = () => {
+  return Axios.get("http://localhost:8000/history/income-today");
+};
+export const orderByWeek = () => {
+  return Axios.get("http://localhost:8000/history/order-week");
+};
+export const incomeByYear = () => {
+  return Axios.get("http://localhost:8000/history/income-year");
+};

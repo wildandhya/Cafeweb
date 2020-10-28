@@ -46,10 +46,13 @@
   display: flex;
   flex-direction: column;
 }
-
-.bottom-wrap {
-  margin-top: 40vh;
+.cart-img {
+  border-radius: 5px;
 }
+
+/* .bottom-wrap { */
+/* margin-top: 40vh; */
+/* } */
 .total {
   display: flex;
   flex-direction: column;

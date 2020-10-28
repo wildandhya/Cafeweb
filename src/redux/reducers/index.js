@@ -2,7 +2,7 @@
 
 import { combineReducers } from "redux";
 
-import getProductReducer from "./productReducer";
+import getProductReducer from "./product";
 import cartReducer from "./cart";
 import historyReducer from "./history";
 

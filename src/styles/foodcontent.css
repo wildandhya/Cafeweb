@@ -17,10 +17,15 @@
   max-height: 590px;
 }
 
+.food-img {
+  border-radius: 10px 10px 0px 0px;
+}
+
 .card-img img {
   padding: 20px 20px 0 20px;
   width: 20vw;
   height: 19vw;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .card-img h1 {

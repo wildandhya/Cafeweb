@@ -5,14 +5,16 @@ import {
   pending,
   fulfilled,
   rejected,
+  addProduct,
 } from "../action/actionType";
 
 const initialState = {
-  data: [],
+  product: [],
   error: "",
   isPending: false,
   isFulfilled: false,
   isRejected: false,
+  uploadMenu: null,
 };
 
 const getProductReducer = (prevState = initialState, { type, payload }) => {
@@ -31,12 +33,30 @@ const getProductReducer = (prevState = initialState, { type, payload }) => {
         isPending: false,
       };
     case getAllproduct + fulfilled:
-      console.log("sgjad");
       return {
         ...prevState,
         isFulfilled: true,
-        data: payload.data.data,
+        product: payload.data.data,
         isPending: false,
+      };
+    case addProduct + pending:
+      return {
+        ...prevState,
+        isPending: true,
+      };
+    case addProduct + rejected:
+      return {
+        ...prevState,
+        isRejected: true,
+        error: payload,
+        isPending: false,
+      };
+    case addProduct + fulfilled:
+      return {
+        ...prevState,
+        isFulfilled: true,
+        isPending: false,
+        uploadMenu: true,
       };
     default:
       return prevState;
