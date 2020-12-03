@@ -1,24 +1,21 @@
 /** @format */
 
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Spinner } from "react-bootstrap";
 
-const Home = React.lazy(() => import("./pages/Home"));
-const History = React.lazy(() => import("./pages/History"));
-const Login = React.lazy(() => import("./pages/login"));
-const Register = React.lazy(() => import("./pages/register"));
+import Home from "./pages/Home";
+import Login from "./pages/login";
+import History from "./pages/History";
+import Register from "./pages/register";
 
 const CafeRouter = () => {
   return (
     <Router>
-      <React.Suspense fallback={<div>Loading...</div>}>
-        <Switch>
-          <Route exact path='/' component={Login} />
-          <Route path='/Register' component={Register} />
-          <Route path='/home' component={Home} />
-          <Route path='/history' component={History} />
-        </Switch>
-      </React.Suspense>
+      <Route exact path='/' component={Login} />
+      <Route path='/Register' component={Register} />
+      <Route path='/home' component={Home} />
+      <Route path='/history' component={History} />
     </Router>
   );
 };

@@ -2,10 +2,8 @@
 
 import Axios from "axios";
 
-
-
-export const registerApi = () => {
-  return Axios.post("http://localhost:8000/register");
+export const registerApi = (data) => {
+  return Axios.post("http://localhost:8000/register", data);
 };
 export const loginApi = () => {
   return Axios.post("http://localhost:8000/login");

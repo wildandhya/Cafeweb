@@ -18,7 +18,7 @@ const Sidebar = () => {
     <Fragment>
       <div className='sidebar'>
         <div className='content-sidebar d-flex flex-column align-items-center'>
-          <Link to='/'>
+          <Link to='/home'>
             <img src='../../images/icon/fork.png' alt='menu' />
           </Link>
           <Link to='/history'>
