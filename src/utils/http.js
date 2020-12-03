@@ -2,6 +2,14 @@
 
 import Axios from "axios";
 
+
+
+export const registerApi = () => {
+  return Axios.post("http://localhost:8000/register");
+};
+export const loginApi = () => {
+  return Axios.post("http://localhost:8000/login");
+};
 export const getProductApi = () => {
   return Axios.get("http://localhost:8000/product");
 };

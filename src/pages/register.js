@@ -3,15 +3,16 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import "../styles/login.css";
+import "../styles/register.css";
 import { Link } from "react-router-dom";
 
-export default function Login() {
+export default function Register() {
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   function validateForm() {
-    return email.length > 0 && password.length > 0;
+    return username.length > 0 && email.length > 0 && password.length > 0;
   }
 
   function handleSubmit(event) {
@@ -19,13 +20,21 @@ export default function Login() {
   }
 
   return (
-    <div className='Login'>
-      <h3>Sign In</h3>
+    <div className='register'>
+      <h3>Sign Up</h3>
       <Form onSubmit={handleSubmit}>
+        <Form.Group size='lg' controlId='email'>
+          <Form.Label>Username</Form.Label>
+          <Form.Control
+            autoFocus
+            type='name'
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </Form.Group>
         <Form.Group size='lg' controlId='email'>
           <Form.Label>Email</Form.Label>
           <Form.Control
-            autoFocus
             type='email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -40,11 +49,11 @@ export default function Login() {
           />
         </Form.Group>
         <Button block size='lg' type='submit' disabled={!validateForm()}>
-          Login
+          Register
         </Button>
         <div>
-          <Link className='nav-link' to={"/Register"}>
-            Do you have account? Sign Up
+          <Link className='nav-link' to={"/"}>
+            already have account? Sign In
           </Link>
         </div>
       </Form>

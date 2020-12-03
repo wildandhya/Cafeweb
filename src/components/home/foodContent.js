@@ -47,7 +47,7 @@ const FoodContent = () => {
                   <div key={item.id}>
                     <img
                       src={item.image}
-                      className='food-img'
+                      className='image'
                       alt=''
                       onClick={() =>
                         addToCart(item.id, item.menu, item.price, item.image)

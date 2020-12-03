@@ -78,7 +78,7 @@ const Cart = () => {
                           </div>{" "}
                         </div>
                         <h4 className='cart-price'>
-                          Rp {item.qty * item.price}
+                          Rp {(item.qty * item.price).toLocaleString("id-ID")}
                         </h4>
                       </div>
                     );
@@ -91,9 +91,11 @@ const Cart = () => {
                       <h4 className='total-title'>
                         {" "}
                         Rp{" "}
-                        {cart.reduce((total, item) => {
-                          return total + item.price * item.qty;
-                        }, 0)}
+                        {cart
+                          .reduce((total, item) => {
+                            return total + item.price * item.qty;
+                          }, 0)
+                          .toLocaleString("id-ID")}
                       </h4>
                     </div>
                     <div className='ppn-wrap'>
@@ -106,12 +108,12 @@ const Cart = () => {
                     </Button>
                     <Button className='cancel'>Cancel</Button>
                   </div>
-                  <CheckoutModal
-                    showModal={showModal}
-                    handleCloseModal={handleCloseModal}
-                  />
                 </div>
               </div>
+              <CheckoutModal
+                showModal={showModal}
+                handleCloseModal={handleCloseModal}
+              />
             </>
           );
         }

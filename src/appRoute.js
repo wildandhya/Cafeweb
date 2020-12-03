@@ -1,18 +1,24 @@
 /** @format */
 
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Home from "./pages/Home";
-import History from "./pages/History";
-import Login from "./pages/login";
+const Home = React.lazy(() => import("./pages/Home"));
+const History = React.lazy(() => import("./pages/History"));
+const Login = React.lazy(() => import("./pages/login"));
+const Register = React.lazy(() => import("./pages/register"));
 
 const CafeRouter = () => {
   return (
     <Router>
-      <Route path='/' component={Home} />
-      <Route path='/history' component={History} />
-      <Route path='/login' component={Login} />
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <Switch>
+          <Route exact path='/' component={Login} />
+          <Route path='/Register' component={Register} />
+          <Route path='/home' component={Home} />
+          <Route path='/history' component={History} />
+        </Switch>
+      </React.Suspense>
     </Router>
   );
 };

@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProduct } from "../redux/action/product";
@@ -43,7 +43,7 @@ const Home = () => {
     <Fragment>
       <div className='container-fluid'>
         <div className='row'>
-          <div className='col-9 col-md- p-0'>
+          <div className='col-8 col-md-8 p-0'>
             <Header />
             <ToastContainer />
             <div className='row'>
@@ -55,7 +55,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className='col-3 col-md-3 p-0'>
+          <div className='col-4 col-md-4 p-0'>
             <Cart />
           </div>
         </div>

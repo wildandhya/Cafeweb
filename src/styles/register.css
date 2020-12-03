@@ -1,36 +1,37 @@
 /** @format */
 
 @media all and (min-width: 480px) {
-  .Login {
+  .register {
     padding: 150px 0;
     min-height: 100vh;
     display: flex;
     font-weight: 400;
     font-family: sans-serif;
-    background-image: radial-gradient(
-      circle,
+    background: linear-gradient(
+      to right top,
       #732d54,
-      #543764,
-      #2e3e65,
-      #0c3f59,
-      #0d3d47,
-      #184a4f,
-      #265656,
-      #35635c,
-      #41877e,
-      #4daca2,
-      #57d3c8,
+      #6d3360,
+      #643a6b,
+      #594174,
+      #4b477b,
+      #43578d,
+      #37689d,
+      #2678aa,
+      #0698c5,
+      #00b9d9,
+      #2cdae8,
       #5ffbf1
     );
+
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
     width: 100%;
     height: 100%;
     flex-direction: column;
-    box-shadow: 1px transparent #000000;
+    align-items: center !important;
   }
 
-  .Login form {
+  .register form {
     margin: 0 auto;
     width: 30vw;
     font-family: "Noto Sans JP", sans-serif;
@@ -70,7 +71,7 @@
   }
 
   button {
-    font-size: 1em;
+    font-size: 0.7em;
     background-color: #132939 !important;
   }
 }
