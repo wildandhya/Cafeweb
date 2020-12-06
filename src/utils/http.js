@@ -5,8 +5,11 @@ import Axios from "axios";
 export const registerApi = (data) => {
   return Axios.post("http://localhost:8000/register", data);
 };
-export const loginApi = () => {
-  return Axios.post("http://localhost:8000/login");
+export const loginApi = (email, password) => {
+  return Axios.post("http://localhost:8000/login", {
+    email: email,
+    password: password,
+  });
 };
 export const getProductApi = () => {
   return Axios.get("http://localhost:8000/product");
@@ -27,6 +30,13 @@ export const addProductApi = (menu, image, price, category_id) => {
     },
   };
   return Axios.post("http://localhost:8000/product", data, config);
+};
+
+export const deleteProductApi = (id) => {
+  return Axios.delete(`http://localhost:8000/product/${id}`);
+};
+export const updateProductApi = (id) => {
+  return Axios.put(`http://localhost:8000/product/${id}`);
 };
 
 export const incomeToday = () => {

@@ -69,7 +69,7 @@
     color: #000000;
   }
 
-  button {
+  .btnSubmit{
     font-size: 1em;
     background-color: #132939 !important;
   }

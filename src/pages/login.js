@@ -3,30 +3,64 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import "../styles/login.css";
 import { Link } from "react-router-dom";
+import "../styles/login.css";
+import { loginAction } from "../redux/action/auth";
+import { loginApi } from "../utils/http";
+import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Login() {
+  const dispatch = useDispatch();
+  let history = useHistory();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { user } = useSelector((state) => state.user);
+  console.log(user);
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
   }
 
-  function handleSubmit(event) {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-  }
+    // dispatch(loginAction(email, password));
+    try {
+      let response = await loginApi(email, password);
+      // console.log(response);
+      if (response.statusText === "OK") {
+        localStorage.setItem("token", response.data.data.token);
+        history.replace("/home");
+      }
+    } catch (error) {
+      const { response } = error;
+      toast.error(response.data.error.msg, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
 
   return (
     <div className='Login'>
       <h3>Sign In</h3>
+      <ToastContainer />
       <Form onSubmit={handleSubmit}>
         <Form.Group size='lg' controlId='email'>
           <Form.Label>Email</Form.Label>
           <Form.Control
             autoFocus
             type='email'
+            autoComplete='off'
+            placeholder='Masukan email anda'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -36,10 +70,18 @@ export default function Login() {
           <Form.Control
             type='password'
             value={password}
+            placeholder='Masukan password anda'
+            autoComplete='off'
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Button block size='lg' type='submit' disabled={!validateForm()}>
+        <Button
+          block
+          size='lg'
+          type='submit'
+          className='btnSubmit'
+          disabled={!validateForm()}
+          onClick={handleSubmit}>
           Login
         </Button>
         <div>

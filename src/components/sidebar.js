@@ -2,7 +2,7 @@
 
 import React, { Fragment } from "react";
 
-import AddModalMenu from "./modalAddProduct";
+import AddModalMenu from "../components/Modal/modalAddProduct";
 
 import { Link } from "react-router-dom";
 
@@ -33,6 +33,9 @@ const Sidebar = () => {
             showModal={showModal}
             handleCloseModal={handleCloseModal}
           />
+          <Link to='/'>
+            <img src='../../images/icon/logout.png' alt='clipboard' />
+          </Link>
         </div>
       </div>
     </Fragment>

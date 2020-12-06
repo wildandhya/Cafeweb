@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import "../styles/cart.css";
 import { plusBtn, minusBtn } from "../redux/action/cart";
-import CheckoutModal from "./modalCheckout";
+import CheckoutModal from "../components/Modal/modalCheckout";
 
 const Cart = () => {
   const [showModal, setShowModal] = useState(false);

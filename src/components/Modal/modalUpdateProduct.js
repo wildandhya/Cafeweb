@@ -4,12 +4,12 @@ import React, { useEffect, useState } from "react";
 import { Button, Modal, Form, Row } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
 
-import "../styles/modalAddProduct.css";
+import "../../styles/modalUpdateProduct.css";
 
-import { addProductAction, fetchProduct } from "../redux/action/product";
+import { addProductAction, fetchProduct } from "../../redux/action/product";
 import { useDispatch, useSelector } from "react-redux";
 
-const ModalAddProduct = (props) => {
+const ModalUpdateProduct = (props) => {
   const dispatch = useDispatch();
 
   const { uploadMenu } = useSelector((state) => state.product);
@@ -18,7 +18,6 @@ const ModalAddProduct = (props) => {
     menu: "",
     image: "",
     price: "",
-    category_id: "",
   });
 
   const [msg, setMsg] = useState(false);
@@ -38,7 +37,7 @@ const ModalAddProduct = (props) => {
         backdrop='static'
         centered>
         <Modal.Header className='modal-hide-border'>
-          <Modal.Title>Add Item</Modal.Title>
+          <Modal.Title>Update Menu</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form.Group>
@@ -50,6 +49,7 @@ const ModalAddProduct = (props) => {
                 <Form.Control
                   type=''
                   placeholder=''
+                  value={props.product.menu}
                   className='input-name'
                   onChange={(x) => {
                     setData({ ...data, menu: x.target.value });
@@ -65,7 +65,8 @@ const ModalAddProduct = (props) => {
                 <Form.File
                   custom
                   id='image'
-                  label={data.image.name}
+                  // value={props.product.image.name}
+                  // // label={data.image.name}
                   className='input-image'
                   onChange={(x) => {
                     console.log(x);
@@ -82,36 +83,12 @@ const ModalAddProduct = (props) => {
                 <Form.Control
                   type=''
                   placeholder=''
+                  value={props.product.price}
                   className='input-price'
                   onChange={(x) => {
                     setData({ ...data, price: x.target.value });
                   }}
                 />
-              </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-              <Form.Label column sm='2' className='label-title'>
-                Category
-              </Form.Label>
-              <Col sm='10'>
-                <Form.Control
-                  as='select'
-                  defaultValue='Category'
-                  onChange={(x) => {
-                    if (x.target.value === "Drink") {
-                      setData({ ...data, category_id: 1 });
-                    }
-                    if (x.target.value === "Food") {
-                      setData({ ...data, category_id: 2 });
-                    }
-                  }}
-                  className='input-category'>
-                  <option disabled hidden>
-                    Category
-                  </option>
-                  <option>Drink</option>
-                  <option>Food</option>
-                </Form.Control>
               </Col>
             </Form.Group>
           </Form.Group>
@@ -161,4 +138,4 @@ const ModalAddProduct = (props) => {
   );
 };
 
-export default ModalAddProduct;
+export default ModalUpdateProduct;

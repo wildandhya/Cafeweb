@@ -5,20 +5,16 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "../styles/register.css";
 import { Link } from "react-router-dom";
-import { registerAction } from "../redux/action/auth";
+import { registerApi } from "../utils/http";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useDispatch } from "react-redux";
 
 export default function Register() {
-  const dispatch = useDispatch();
   const [form, setForm] = useState({
     username: "",
     email: "",
     password: "",
   });
-
-  console.log(form);
   function validateForm() {
     return (
       form.username.length > 0 &&
@@ -27,37 +23,41 @@ export default function Register() {
     );
   }
 
-  const handleSubmit = () => {
-    dispatch(registerAction(form));
-
-    // try {
-    //   const response = await registerApi(form);
-    //   console.log(response);
-    //   if (response.data.data.msg === "Register succses") {
-    //     toast("Register Success", {
-    //       position: "top-center",
-    //       autoClose: 5000,
-    //       hideProgressBar: false,
-    //       closeOnClick: true,
-    //       pauseOnHover: true,
-    //       draggable: true,
-    //       progress: undefined,
-    //       className: "toast",
-    //     });
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    //   toast("Register Failed", {
-    //     position: "top-center",
-    //     autoClose: 5000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //     className: "toast",
-    //   });
-    // }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      let response = await registerApi(form);
+      console.log(response);
+      if (response.data.data.msg === "Register succses") {
+        setForm({
+          ...form,
+          username: "",
+          email: "",
+          password: "",
+        });
+        toast("Register Success", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          className: "toast",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Sorry, your email already exist ", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   };
 
   return (
@@ -70,6 +70,7 @@ export default function Register() {
           <Form.Control
             autoFocus
             type='name'
+            placeholder='Masukan username anda'
             value={form.username}
             onChange={(e) => setForm({ ...form, username: e.target.value })}
           />
@@ -78,6 +79,7 @@ export default function Register() {
           <Form.Label>Email</Form.Label>
           <Form.Control
             type='email'
+            placeholder='Masukan email anda'
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
           />
@@ -86,6 +88,7 @@ export default function Register() {
           <Form.Label>Password</Form.Label>
           <Form.Control
             type='password'
+            placeholder='Masukan password anda'
             value={form.password}
             onChange={(e) => setForm({ ...form, password: e.target.value })}
           />
@@ -94,6 +97,7 @@ export default function Register() {
           block
           size='lg'
           type='submit'
+          className='btnSubmit'
           disabled={!validateForm()}
           onClick={handleSubmit}>
           Register

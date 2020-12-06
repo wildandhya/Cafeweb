@@ -11,9 +11,9 @@ export const registerAction = (data) => {
   };
 };
 
-export const loginAction = (menu, image, price, category_id) => {
+export const loginAction = (email, password) => {
   return {
     type: login,
-    payload: loginApi(menu, image, price, category_id),
+    payload: loginApi(email, password),
   };
 };

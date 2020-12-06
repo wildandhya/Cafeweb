@@ -4,11 +4,10 @@ import React from "react";
 import { Button, Modal, Row, Container, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
-import "../styles/modalCheckout.css";
+import "../../styles/modalCheckout.css";
 
 const ModalCheckout = (props) => {
   let invoice = new Date().getTime();
-
   const cart = useSelector((state) => state.cart.data);
   console.log(cart);
 

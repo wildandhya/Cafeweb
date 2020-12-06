@@ -1,0 +1,58 @@
+/** @format */
+
+.modal-hide-border {
+  border: none;
+}
+.cancelModal {
+  background-color: #f24f8a;
+  width: 8vw;
+}
+
+.addModal {
+  background-color: #57cad5;
+  width: 8vw;
+}
+
+.label-title {
+  font-size: 1vmax;
+  color: black;
+  font-weight: bold;
+}
+
+.input-name {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.input-image {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.input-price {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  width: 20vw;
+  border-radius: 10px;
+}
+
+.input-category {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  width: 10vw;
+  border-radius: 10px;
+}
+
+::placeholder {
+  color: red;
+  font-size: 1vmax;
+}
+
+.msg {
+  color: red;
+  font-size: 15px;
+  text-align: center;
+  margin-top: 2px;
+}
+
+.toast {
+  color: greenyellow;
+}

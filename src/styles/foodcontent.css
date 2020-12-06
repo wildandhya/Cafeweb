@@ -37,3 +37,16 @@
   text-align: left;
   margin: 0;
 }
+.btnWrapper {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px 0;
+}
+
+.btnDelete {
+  background-color: red;
+}
+
+.btnDelete:hover {
+  background-color: #000;
+}
