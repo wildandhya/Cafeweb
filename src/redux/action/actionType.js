@@ -11,6 +11,8 @@ export const orderWeek = "ORDER_WEEK";
 export const incomeYear = "INCOME_BY_YEAR";
 export const register = "REGISTER";
 export const login = "LOGIN";
+export const editMenu = "EDIT_MENU";
+export const logout = "LOGOUT";
 
 export const pending = "_PENDING";
 export const fulfilled = "_FULFILLED";

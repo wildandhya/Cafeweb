@@ -6,6 +6,7 @@ import {
   rejected,
   register,
   login,
+  logout,
 } from "../action/actionType";
 
 const initialState = {
@@ -57,6 +58,11 @@ const authReducer = (prevState = initialState, { type, payload }) => {
         isFulfilled: true,
         isPending: false,
         user: payload.data.data,
+      };
+    case logout:
+      return {
+        ...prevState,
+        user: [],
       };
     default:
       return prevState;

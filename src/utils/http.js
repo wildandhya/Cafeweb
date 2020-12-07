@@ -35,8 +35,19 @@ export const addProductApi = (menu, image, price, category_id) => {
 export const deleteProductApi = (id) => {
   return Axios.delete(`http://localhost:8000/product/${id}`);
 };
-export const updateProductApi = (id) => {
-  return Axios.put(`http://localhost:8000/product/${id}`);
+export const updateProductApi = (id, menu, image, price) => {
+  let data = new FormData();
+  data.append("menu", menu);
+  data.append("image", image);
+  data.append("price", price);
+  const config = {
+    headers: {
+      "content-type": "multipart/form-data",
+      // "x-access-token":
+      // "Bearer toke",
+    },
+  };
+  return Axios.put(`http://localhost:8000/product/${id}`, data, config);
 };
 
 export const incomeToday = () => {

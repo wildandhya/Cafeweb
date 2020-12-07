@@ -3,31 +3,39 @@
 import React, { useEffect, useState } from "react";
 import { Button, Modal, Form, Row } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
+import { fetchProduct } from "../../redux/action/product";
 
 import "../../styles/modalUpdateProduct.css";
 
-import { addProductAction, fetchProduct } from "../../redux/action/product";
+import { updateProductApi } from "../../utils/http";
 import { useDispatch, useSelector } from "react-redux";
 
 const ModalUpdateProduct = (props) => {
   const dispatch = useDispatch();
 
-  const { uploadMenu } = useSelector((state) => state.product);
-
   const [data, setData] = useState({
-    menu: "",
-    image: "",
-    price: "",
+    menu: props.product.name,
+    image: props.product.image,
+    price: props.product.price,
   });
 
-  const [msg, setMsg] = useState(false);
-
-  useEffect(() => {
-    if (uploadMenu === true) {
-      dispatch(fetchProduct());
+  console.log(props.product.name);
+  const handleSubmit = async () => {
+    try {
+      let response = await updateProductApi(
+        props.product.id,
+        data.menu,
+        data.image,
+        data.price
+      );
+      console.log(response.data.data.status);
+      if (response.data.success === true) {
+        dispatch(fetchProduct());
+      }
+    } catch (error) {
+      console.log(error);
     }
-  }, [uploadMenu, dispatch]);
-
+  };
   return (
     <div>
       <Modal
@@ -49,7 +57,7 @@ const ModalUpdateProduct = (props) => {
                 <Form.Control
                   type=''
                   placeholder=''
-                  value={props.product.menu}
+                  value={data.menu}
                   className='input-name'
                   onChange={(x) => {
                     setData({ ...data, menu: x.target.value });
@@ -65,12 +73,10 @@ const ModalUpdateProduct = (props) => {
                 <Form.File
                   custom
                   id='image'
-                  // value={props.product.image.name}
-                  // // label={data.image.name}
+                  value={data.image}
                   className='input-image'
                   onChange={(x) => {
-                    console.log(x);
-                    setData({ ...data, image: x.target.files[0] });
+                    setData({ ...data, image: x.target.file });
                   }}
                 />
               </Col>
@@ -83,7 +89,7 @@ const ModalUpdateProduct = (props) => {
                 <Form.Control
                   type=''
                   placeholder=''
-                  value={props.product.price}
+                  value={data.price}
                   className='input-price'
                   onChange={(x) => {
                     setData({ ...data, price: x.target.value });
@@ -92,7 +98,6 @@ const ModalUpdateProduct = (props) => {
               </Col>
             </Form.Group>
           </Form.Group>
-          {msg === true ? <h6 className='msg'>You Should Input All</h6> : null}
         </Modal.Body>
         <Modal.Footer className='modal-hide-border'>
           <Button className='cancelModal' onClick={props.handleCloseModal}>
@@ -101,36 +106,12 @@ const ModalUpdateProduct = (props) => {
           <Button
             className='addModal'
             onClick={() => {
-              if (
-                data.menu === "" &&
-                data.image === "" &&
-                data.price === "" &&
-                data.category_id === ""
-              ) {
-                setMsg(true);
-              } else if (
-                data.menu === "" ||
-                data.image === "" ||
-                data.price === "" ||
-                data.category_id === ""
-              ) {
-                setMsg(true);
-              } else {
-                setMsg(false);
-                dispatch(
-                  addProductAction(
-                    data.menu,
-                    data.image,
-                    data.price,
-                    data.category_id
-                  )
-                );
-                setTimeout(() => {
-                  props.handleCloseModal();
-                }, 500);
-              }
+              handleSubmit();
+              setTimeout(() => {
+                props.handleCloseModal();
+              }, 500);
             }}>
-            Add
+            Update
           </Button>
         </Modal.Footer>
       </Modal>

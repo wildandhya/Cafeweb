@@ -27,17 +27,16 @@ export default function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // dispatch(loginAction(email, password));
+    dispatch(loginAction(email, password));
     try {
       let response = await loginApi(email, password);
       // console.log(response);
       if (response.statusText === "OK") {
-        localStorage.setItem("token", response.data.data.token);
         history.replace("/home");
       }
     } catch (error) {
       const { response } = error;
-      toast.error(response.data.error.msg, {
+      toast.error("email or password invalid", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,

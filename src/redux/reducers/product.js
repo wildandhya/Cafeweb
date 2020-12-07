@@ -6,6 +6,7 @@ import {
   fulfilled,
   rejected,
   addProduct,
+  editMenu,
 } from "../action/actionType";
 
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
   isFulfilled: false,
   isRejected: false,
   uploadMenu: null,
+  editItemState: {},
 };
 
 const getProductReducer = (prevState = initialState, { type, payload }) => {
@@ -57,6 +59,13 @@ const getProductReducer = (prevState = initialState, { type, payload }) => {
         isFulfilled: true,
         isPending: false,
         uploadMenu: true,
+      };
+    case editMenu:
+      return {
+        ...prevState,
+        editItemState: {
+          ...payload,
+        },
       };
     default:
       return prevState;
