@@ -2,17 +2,19 @@
 
 import Axios from "axios";
 
+export const URL = "http://172.17.62.110:8000";
+
 export const registerApi = (data) => {
-  return Axios.post("http://localhost:8000/register", data);
+  return Axios.post(`${URL}/register`, data);
 };
 export const loginApi = (email, password) => {
-  return Axios.post("http://localhost:8000/login", {
+  return Axios.post(`${URL}/login`, {
     email: email,
     password: password,
   });
 };
 export const getProductApi = () => {
-  return Axios.get("http://localhost:8000/product");
+  return Axios.get(`${URL}/product`);
 };
 
 export const addProductApi = (menu, image, price, category_id) => {
@@ -29,11 +31,11 @@ export const addProductApi = (menu, image, price, category_id) => {
       // "Bearer toke",
     },
   };
-  return Axios.post("http://localhost:8000/product", data, config);
+  return Axios.post(`${URL}/product`, data, config);
 };
 
 export const deleteProductApi = (id) => {
-  return Axios.delete(`http://localhost:8000/product/${id}`);
+  return Axios.delete(`${URL}/product/${id}`);
 };
 export const updateProductApi = (id, menu, image, price) => {
   let data = new FormData();
@@ -47,15 +49,15 @@ export const updateProductApi = (id, menu, image, price) => {
       // "Bearer toke",
     },
   };
-  return Axios.put(`http://localhost:8000/product/${id}`, data, config);
+  return Axios.put(`${URL}/product/${id}`, data, config);
 };
 
 export const incomeToday = () => {
-  return Axios.get("http://localhost:8000/history/income-today");
+  return Axios.get(`${URL}/history/income-today`);
 };
 export const orderByWeek = () => {
-  return Axios.get("http://localhost:8000/history/order-week");
+  return Axios.get(`${URL}/history/order-week`);
 };
 export const incomeByYear = () => {
-  return Axios.get("http://localhost:8000/history/income-year");
+  return Axios.get(`${URL}/history/income-year`);
 };
