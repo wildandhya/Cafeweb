@@ -1,75 +1,72 @@
 /** @format */
 
 import {
-  getAllproduct,
   pending,
   fulfilled,
   rejected,
-  addProduct,
-  editMenu,
+  register,
+  login,
+  logout,
 } from "../action/actionType";
 
 const initialState = {
-  product: [],
+  user: [],
   error: "",
   isPending: false,
   isFulfilled: false,
   isRejected: false,
   uploadMenu: null,
-  editItemState: {},
 };
 
-const getProductReducer = (prevState = initialState, { type, payload }) => {
+const authReducer = (prevState = initialState, { type, payload }) => {
   switch (type) {
-    case getAllproduct + pending:
+    case register + pending:
       return {
         ...prevState,
         isPending: true,
       };
 
-    case getAllproduct + rejected:
+    case register + rejected:
       return {
         ...prevState,
         isRejected: true,
         error: payload,
         isPending: false,
       };
-    case getAllproduct + fulfilled:
+    case register + fulfilled:
       return {
         ...prevState,
         isFulfilled: true,
-        product: payload.data.data,
+        user: payload.data.data,
         isPending: false,
       };
-    case addProduct + pending:
+    case login + pending:
       return {
         ...prevState,
         isPending: true,
       };
-    case addProduct + rejected:
+    case login + rejected:
       return {
         ...prevState,
         isRejected: true,
         error: payload,
         isPending: false,
       };
-    case addProduct + fulfilled:
+    case login + fulfilled:
       return {
         ...prevState,
         isFulfilled: true,
         isPending: false,
-        uploadMenu: true,
+        user: payload.data.data,
       };
-    case editMenu:
+    case logout:
       return {
         ...prevState,
-        editItemState: {
-          ...payload,
-        },
+        user: [],
       };
     default:
       return prevState;
   }
 };
 
-export default getProductReducer;
+export default authReducer;

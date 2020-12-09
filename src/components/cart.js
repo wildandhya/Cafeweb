@@ -1,61 +1,63 @@
 /** @format */
 
-/** @format */
+import React, { useState } from "react";
 
-import React from "react";
+import { Badge, Button } from "react-bootstrap";
+
+// import Modal from "../components/addmodal";
+import { useDispatch, useSelector } from "react-redux";
 
 import "../styles/cart.css";
-import "../styles/Home.css";
+import { plusBtn, minusBtn } from "../redux/action/cart";
+import CheckoutModal from "../components/Modal/modalCheckout";
 
-class Cart extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      menuSelected: props.menuSelected,
-    };
-  }
-  handlePlus = (id) => {
-    // let checkId = this.state.menuSelected.findIndex((item) => item.id === id);
-    let data = this.state.menuSelected;
+const Cart = () => {
+  const [showModal, setShowModal] = useState(false);
+  const handleShowModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
 
-    console.log();
-    this.setState({
-      menuSelected: data,
+  const cart = useSelector((state) => state.cart.data);
+  const dispatch = useDispatch();
+
+  const increaseBtn = (id) => {
+    const checkId = cart.findIndex((item) => {
+      return item.id === id;
     });
+    dispatch(plusBtn(checkId));
   };
-
-  // handleMinus = (id) => {
-  // if (this.state.count > 0) {
-  // this.setState({
-  // count: this.state.count - 1,
-  // });
-  // }
-  // };
-  render() {
-    console.log(this.state.menuSelected[0]["menu"]);
-    return (
-      <div className='cart'>
-        <div className='cart-header'>
-          <h1>Cart</h1>
-          <span></span>
-        </div>
-        {(() => {
-          if (this.state.menuSelected.length === 0) {
-            return (
-              <div className='empty-cart'>
-                <img
-                  src='../../images/icon/food-and-restaurant.png'
-                  alt='cart-empty'
-                />
-                <h3>Your Cart is Empty</h3>
-                <h6>Please Add Some Items From the Menu</h6>
-              </div>
-            );
-          } else {
-            return (
-              <>
-                <div className='cart-items'>
-                  {this.state.menuSelected.map((item) => {
+  const decreaseBtn = (id) => {
+    const checkId = cart.findIndex((item) => {
+      return item.id === id;
+    });
+    dispatch(minusBtn(checkId));
+  };
+  return (
+    <div className='cart'>
+      <div className='cart-header'>
+        <h1>
+          Cart <Badge variant='secondary'>{cart.length}</Badge>
+        </h1>
+      </div>
+      {(() => {
+        if (cart.length === 0) {
+          return (
+            <div className='empty-cart'>
+              <img
+                src='../../images/icon/food-and-restaurant.png'
+                alt='cart-empty'
+              />
+              <h3>Your Cart is Empty</h3>
+              <h6 className='empty-subtext'>
+                Please add some items from the menu
+              </h6>
+            </div>
+          );
+        } else {
+          return (
+            <>
+              <div className='cart-items'>
+                <div className='top-wrap'>
+                  {cart.map((item) => {
                     return (
                       <div className='cart-content' key={item.id}>
                         <img
@@ -66,38 +68,58 @@ class Cart extends React.Component {
                         <div className='mid'>
                           <h4 className='cart-title'>{item.menu}</h4>
                           <div className='btn-counter'>
-                            <button onClick={this.handleMinus}>-</button>
+                            <Button onClick={() => decreaseBtn(item.id)}>
+                              -
+                            </Button>
                             <span>{item.qty}</span>
-                            <button onClick={this.handlePlus}>+</button>
+                            <Button onClick={() => increaseBtn(item.id)}>
+                              +
+                            </Button>
                           </div>{" "}
                         </div>
-                        <h4 className='cart-price'>Rp.{item.price}</h4>
+                        <h4 className='cart-price'>
+                          Rp {(item.qty * item.price).toLocaleString("id-ID")}
+                        </h4>
                       </div>
                     );
                   })}
+                </div>
+                <div className='bottom-wrap'>
                   <div className='total'>
-                    <div className='row'>
-                      <div className='col-7'>
-                        <h4 className=''>Total:</h4>
-                        <p>*belum Termasuk PPn %</p>
-                      </div>
-                      <div className='col-5'>
-                        <h4>Rp.200000</h4>
-                      </div>
+                    <div className='title'>
+                      <h4 className='total-title'>Total:</h4>
+                      <h4 className='total-title'>
+                        {" "}
+                        Rp{" "}
+                        {cart
+                          .reduce((total, item) => {
+                            return total + item.price * item.qty;
+                          }, 0)
+                          .toLocaleString("id-ID")}
+                      </h4>
+                    </div>
+                    <div className='ppn-wrap'>
+                      <p className='ppn'>*belum Termasuk PPn %</p>
                     </div>
                   </div>
                   <div className='btn-checkout'>
-                    <button className='checkout'>Checkout</button>
-                    <button className='cancel'>Cancel</button>
+                    <Button className='checkout' onClick={handleShowModal}>
+                      Checkout
+                    </Button>
+                    <Button className='cancel'>Cancel</Button>
                   </div>
                 </div>
-              </>
-            );
-          }
-        })()}
-      </div>
-    );
-  }
-}
+              </div>
+              <CheckoutModal
+                showModal={showModal}
+                handleCloseModal={handleCloseModal}
+              />
+            </>
+          );
+        }
+      })()}
+    </div>
+  );
+};
 
 export default Cart;

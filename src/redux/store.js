@@ -1,14 +1,16 @@
-/** @format */
+import {createStore, applyMiddleware} from 'redux'
+import {createLogger} from 'redux-logger'
+import rpm from 'redux-promise-middleware'
+import thunk from 'redux-thunk'
 
-import { createStore, applyMiddleware } from "redux";
-import { createLogger } from "redux-logger";
-import rootReducers from "./reducers/index";
-import rpm from "redux-promise-middleware";
+import rootReducers from './reducers/index' 
 
-const logger = createLogger();
 
-const enhancers = applyMiddleware(rpm, logger);
+const logger = createLogger()
 
-const store = createStore(rootReducers, enhancers);
+const enhancers = applyMiddleware(rpm, logger, thunk)
 
-export default store;
+const store = createStore(rootReducers, enhancers)
+
+
+export default store

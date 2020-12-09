@@ -21,6 +21,7 @@
   padding: 20px 20px 0 20px;
   width: 20vw;
   height: 19vw;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .card-img h1 {
@@ -35,4 +36,17 @@
   padding: 7px 0 0 20px;
   text-align: left;
   margin: 0;
+}
+.btnWrapper {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px 0;
+}
+
+.btnDelete {
+  background-color: red;
+}
+
+.btnDelete:hover {
+  background-color: #000;
 }

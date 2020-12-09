@@ -2,9 +2,14 @@
 
 .sidebar {
   text-align: center;
+  border-top: none;
 }
 
 .sidebar .content-sidebar img {
-  padding-top: 30px;
-  width: auto;
+  padding-top: 5vh;
+  width: 3vw;
+}
+
+.sidebar .content-sidebar {
+  margin-left: 1vw;
 }
