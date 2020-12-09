@@ -2,6 +2,7 @@
 
 .card-group {
   display: flex;
+  width: 100%;
   justify-content: space-around;
 }
 
@@ -11,12 +12,16 @@
   width: 20vw;
   height: 20vh;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column !important;
 }
 .card-pink {
   margin: 20px;
   width: 20vw;
   height: 20vh;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-pink {
@@ -45,10 +50,11 @@
   );
   filter: drop-shadow(10px 15px 10px rgba(241, 201, 236, 0.25));
 }
-
-.card-group .title {
+.title {
   font-size: 13px;
-  padding: 40px 0 0 25px;
+  padding: 20px 0 0 25px;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-group .title p,
@@ -56,5 +62,5 @@ h2 {
   margin: 5px;
 }
 .card-group .title h2 {
-  font-size: 2vw;
+  font-size: 2em;
 }

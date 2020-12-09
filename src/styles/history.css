@@ -5,4 +5,9 @@
   box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.25);
   overflow: scroll;
   max-height: 590px;
+  max-width: 300vw;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-basis: 100%;
 }

@@ -20,7 +20,7 @@ const FoodContent = () => {
   const handleCloseModalDelete = () => setShowModalDelete(false);
   const handleShowModalUpdate = () => setShowModalUpdate(true);
   const handleCloseModalUpdate = () => setShowModalUpdate(false);
-  const user = useSelector((state) => state.user.user.data[0]);
+  const user = useSelector((state) => state.user.user.data);
 
   const addToCart = (id, menu, price, image) => {
     const cartItem = cart;
@@ -43,7 +43,7 @@ const FoodContent = () => {
     }
   };
 
-  if (user.level_id === 2) {
+  if (user[0].level_id === 2) {
     return (
       <Fragment>
         <div className='food-content'>

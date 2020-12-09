@@ -12,9 +12,9 @@ const Sidebar = () => {
   const [showModal, setShowModal] = useState(false);
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
-  const user = useSelector((state) => state.user.user.data[0]);
+  const user = useSelector((state) => state.user.user.data);
 
-  if (user.level_id === 2) {
+  if (user[0].level_id === 2) {
     return (
       <Fragment>
         <div className='sidebar'>
@@ -41,7 +41,7 @@ const Sidebar = () => {
         </div>
       </Fragment>
     );
-  } else if (user.level_id === 1) {
+  } else if (user[0].level_id === 1) {
     return (
       <Fragment>
         <div className='sidebar'>
@@ -59,16 +59,9 @@ const Sidebar = () => {
   } else {
     return (
       <Fragment>
-        <div className='sidebar'>
-          <div className='content-sidebar d-flex flex-column align-items-center'>
-            <Link to='/home'>
-              <img src='../../images/icon/fork.png' alt='menu' />
-            </Link>
-            <Link to='/' onClick={() => logoutAction()}>
-              <img src='../../images/icon/logout.png' alt='clipboard' />
-            </Link>
-          </div>
-        </div>
+        <Link to='/' onClick={() => logoutAction()}>
+          <img src='../../images/icon/logout.png' alt='clipboard' />
+        </Link>
       </Fragment>
     );
   }

@@ -9,7 +9,6 @@ import "../../styles/modalCheckout.css";
 const ModalCheckout = (props) => {
   let invoice = new Date().getTime();
   const cart = useSelector((state) => state.cart.data);
-  console.log(cart);
 
   return (
     <Modal
@@ -19,44 +18,39 @@ const ModalCheckout = (props) => {
       backdrop='static'
       centered>
       <Modal.Header>
-        <Container>
-          <div className='header'>
-            <Row>
-              <Col xs={4} md={8}>
-                <h6>Checkout</h6>
-                <h6 className='cashier-text'>Cashier:</h6>
-              </Col>
-              <Col xs={8} md={4}>
-                <h6 className='text-reciept'>Reciept no : #{invoice} </h6>
-              </Col>
-            </Row>
+        <div className='header'>
+          <div>
+            <h6>Checkout</h6>
+            <h6 className='cashier-text'>Cashier: Wildan</h6>
           </div>
-        </Container>
+
+          <h6 className='text-reciept'>Reciept no : #{invoice} </h6>
+        </div>
       </Modal.Header>
       <Modal.Body>
         <Container>
-          <div>
+          <div className='bodyContainer'>
             {cart.map((item) => {
               return (
-                <Row>
-                  <Col xs={8}>
+                <div className='menuWrapp'>
+                  <div>
                     <h6 className='cashier-text'>
                       {item.menu}&nbsp;{`${item.qty}x`}
                     </h6>
-                  </Col>
-                  <Col xs={4}>
+                  </div>
+                  <div>
                     <h6 className='cashier-text'>
                       Rp {item.price.toLocaleString("id-ID")}
                     </h6>
-                  </Col>
-                </Row>
+                  </div>
+                </div>
               );
             })}
-            <Row>
-              <Col xs={8}>
+            <div className='menuWrapp'>
+              <div>
                 <h6 className='cashier-text'>Ppn 10%</h6>
-              </Col>
-              <Col xs={4}>
+              </div>
+              <div>
                 <h6 className='cashier-text'>
                   Rp&nbsp;
                   {cart
@@ -65,12 +59,16 @@ const ModalCheckout = (props) => {
                     }, 0)
                     .toLocaleString("id-ID")}
                 </h6>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={12}>
-                <h6 className='cashier-text'>
-                  Total:&nbsp;&nbsp;Rp&nbsp;
+              </div>
+            </div>
+            <div className='menuWrapp'>
+              <div>
+                <h6 className='cashier-text'>Total:&nbsp;&nbsp;</h6>
+              </div>
+              <div>
+                {" "}
+                <h6>
+                  Rp&nbsp;
                   {cart
                     .reduce((total, item) => {
                       return (
@@ -81,26 +79,26 @@ const ModalCheckout = (props) => {
                     }, 0)
                     .toLocaleString("id-ID")}
                 </h6>
-              </Col>
-              <Col xs={12}>
-                <h6 className='cashier-text'>Payment: Cash</h6>
-              </Col>
-            </Row>
+              </div>
+            </div>
+            <div className='payment'>
+              <h6 className='cashier-text'>Payment: Cash</h6>
+            </div>
           </div>
         </Container>
       </Modal.Body>
       <Modal.Footer>
-        <Row>
-          <Col>
+        <div className='footer'>
+          <div>
             <Button onClick={props.handleCloseModal}>Print</Button>
-          </Col>
-          <Col>
-            <h6>Or</h6>
-          </Col>
-          <Col>
+          </div>
+          <div className='or'>
+            <h6>or</h6>
+          </div>
+          <div>
             <Button>Send Email</Button>
-          </Col>
-        </Row>
+          </div>
+        </div>
       </Modal.Footer>
     </Modal>
   );

@@ -30,10 +30,10 @@ class History extends React.Component {
           <div className='row'>
             <HistoryHeader />
             <div className='row'>
-              <div className='col-1'>
+              <div className='col'>
                 <Sidebar />
               </div>
-              <div className='col-11 p-0'>
+              <div className='col p-0'>
                 <div className='content'>
                   <TotalOrder />
                   <Chart />

@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
@@ -19,7 +19,6 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { user } = useSelector((state) => state.user);
-  console.log(user);
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
@@ -28,25 +27,24 @@ export default function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     dispatch(loginAction(email, password));
-    try {
-      let response = await loginApi(email, password);
-      // console.log(response);
-      if (response.statusText === "OK") {
-        history.replace("/home");
-      }
-    } catch (error) {
-      const { response } = error;
-      toast.error("email or password invalid", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }
   };
+
+  useEffect(() => {
+    if (user.msg === "login success") {
+      history.replace("/home");
+    } else {
+      // history.replace("/");
+      // toast.warning("email or password invalid", {
+      //   position: "top-center",
+      //   autoClose: 5000,
+      //   hideProgressBar: false,
+      //   closeOnClick: false,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      // });
+    }
+  }, [history, user.msg]);
 
   return (
     <div className='Login'>
