@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button, Modal, Form, Row } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
 import { fetchProduct } from "../../redux/action/product";
@@ -8,7 +8,7 @@ import { fetchProduct } from "../../redux/action/product";
 import "../../styles/modalUpdateProduct.css";
 
 import { updateProductApi } from "../../utils/http";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 
 const ModalUpdateProduct = (props) => {
   const dispatch = useDispatch();

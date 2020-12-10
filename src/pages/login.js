@@ -6,10 +6,9 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import "../styles/login.css";
 import { loginAction } from "../redux/action/auth";
-import { loginApi } from "../utils/http";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Login() {

@@ -1,14 +1,13 @@
 /** @format */
 
-import React, { useEffect, useState } from "react";
-import { Button, Modal, Form, Row } from "react-bootstrap";
+import React from "react";
+import { Button, Modal } from "react-bootstrap";
 import { fetchProduct } from "../../redux/action/product";
 import { deleteProductApi } from "../../utils/http";
 
 import "../../styles/modalUpdateProduct.css";
 
-import { updateProductApi } from "../../utils/http";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const ModalDeleteProduct = (props) => {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 /** @format */
 
 import React from "react";
-import { Button, Modal, Row, Container, Col } from "react-bootstrap";
+import { Button, Modal, Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 import "../../styles/modalCheckout.css";

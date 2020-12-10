@@ -2,7 +2,6 @@
 
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Spinner } from "react-bootstrap";
 
 import Home from "./pages/Home";
 import Login from "./pages/login";
