@@ -64,16 +64,16 @@
 .ppn {
   font-size: 2vmin;
 }
-.title {
+.title-cart {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 0 1vw 0 1vw;
+  margin: 0 2vw;
 }
 
 .ppn-wrap {
   align-content: flex-start;
-  margin: 0 1vw 0 1vw;
+  margin: 0 2vw;
 }
 
 .btn-checkout {

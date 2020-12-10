@@ -86,7 +86,7 @@ const Cart = () => {
                 </div>
                 <div className='bottom-wrap'>
                   <div className='total'>
-                    <div className='title'>
+                    <div className='title-cart'>
                       <h4 className='total-title'>Total:</h4>
                       <h4 className='total-title'>
                         {" "}

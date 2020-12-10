@@ -6,7 +6,7 @@ import "../../styles/headerHistory.css";
 
 const HistoryHeader = () => {
   return (
-    <div className='header'>
+    <div className='header-history'>
       <div className='row'>
         <div className='col-1'>
           <img src='../../images/icon/menu (1).png' alt='menu' />

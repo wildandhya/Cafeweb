@@ -1,6 +1,12 @@
 /** @format */
 
-.header {
+.header-history {
   text-align: center;
   width: 100%;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.header-history h1 {
+  font-size: 30px;
 }
