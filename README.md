@@ -10,12 +10,9 @@
 ## Contents
 - [Description](#description)
 - [Features](#features)
-- [Usage](#usage-application)
-- [Requirements](#requirements-for-development)
 - [Installation](#installation-for-development)
 - [Screenshoots](#screenshoots)
-- [Release APK](#release-apk)
-- [Related Project](#related-project)
+
 
 ## Description
 Point of Slicing Cafe is a website application that is intended for admins and cashiers to manage various menus such as food and beverages
@@ -42,4 +39,11 @@ Point of Slicing Cafe is a website application that is intended for admins and c
   ```sh
   npm start
   ```
+## Screenshoots
+
+<div align="center">
+    <img width="250" src="./src/assets/images/screenshoot-1.png">   
+    <img width="250" src="./src/assets/images/screenshoot-2.png">
+    <img width="250" src="./src/assets/images/screenshoot-3.png">
+</div>
 
