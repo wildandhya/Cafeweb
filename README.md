@@ -16,7 +16,7 @@ Point of Slicing Cafe is a website application that is intended for admins and c
 6. Logout
 
 
-## How to run the app ?
+##  Installation
 1. Clone this Repository 
  ```sh
    git clone https://github.com/wildandhya/Cafeweb.git
