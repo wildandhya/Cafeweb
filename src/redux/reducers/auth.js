@@ -16,6 +16,7 @@ const initialState = {
   isFulfilled: false,
   isRejected: false,
   uploadMenu: null,
+  isLogged: false,
 };
 
 const authReducer = (prevState = initialState, { type, payload }) => {
@@ -49,8 +50,9 @@ const authReducer = (prevState = initialState, { type, payload }) => {
       return {
         ...prevState,
         isRejected: true,
-        error: payload,
+        error: payload.response.data,
         isPending: false,
+        isLogged: false,
       };
     case login + fulfilled:
       return {
@@ -58,6 +60,7 @@ const authReducer = (prevState = initialState, { type, payload }) => {
         isFulfilled: true,
         isPending: false,
         user: payload.data.data,
+        isLogged: true,
       };
     case logout:
       return {

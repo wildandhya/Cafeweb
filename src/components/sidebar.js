@@ -59,9 +59,16 @@ const Sidebar = () => {
   } else {
     return (
       <Fragment>
-        <Link to='/' onClick={() => logoutAction()}>
-          <img src='../../images/icon/logout.png' alt='clipboard' />
-        </Link>
+        <div className='sidebar'>
+          <div className='content-sidebar d-flex flex-column align-items-center'>
+            <Link to='/home'>
+              <img src='../../images/icon/fork.png' alt='menu' />
+            </Link>
+            <Link to='/' onClick={() => logoutAction()}>
+              <img src='../../images/icon/logout.png' alt='clipboard' />
+            </Link>
+          </div>
+        </div>
       </Fragment>
     );
   }

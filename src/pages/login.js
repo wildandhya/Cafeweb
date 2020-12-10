@@ -8,7 +8,7 @@ import "../styles/login.css";
 import { loginAction } from "../redux/action/auth";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Login() {
@@ -17,7 +17,7 @@ export default function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { user } = useSelector((state) => state.user);
+  const { user, error } = useSelector((state) => state.user);
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
@@ -31,19 +31,19 @@ export default function Login() {
   useEffect(() => {
     if (user.msg === "login success") {
       history.replace("/home");
-    } else {
+    } else if (error.success === false) {
       // history.replace("/");
-      // toast.warning("email or password invalid", {
-      //   position: "top-center",
-      //   autoClose: 5000,
-      //   hideProgressBar: false,
-      //   closeOnClick: false,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      //   progress: undefined,
-      // });
+      toast.warning("email or password invalid", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
-  }, [history, user.msg]);
+  }, [history, user.msg, error.success]);
 
   return (
     <div className='Login'>
