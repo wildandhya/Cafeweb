@@ -1,11 +1,21 @@
 <h1 align="center">Point of Slicing Cafe</h1>
-
-
-
-Point of Slicing Cafe is a website application that is intended for admins and cashiers to manage various menus such as food and beverages
-## Built With
 [![React.js](https://img.shields.io/badge/React.js-0.01-blue)](https://reactjs.org/docs/create-a-new-react-app.html)
 
+
+
+
+## Contents
+- [Description](#description)
+- [Features](#features)
+- [Usage](#usage-application)
+- [Requirements](#requirements-for-development)
+- [Installation](#installation-for-development)
+- [Screenshoots](#screenshoots)
+- [Release APK](#release-apk)
+- [Related Project](#related-project)
+
+##Description
+Point of Slicing Cafe is a website application that is intended for admins and cashiers to manage various menus such as food and beverages
 
 ## Features
 1. Authentication (Login & Register)
