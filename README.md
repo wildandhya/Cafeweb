@@ -1,5 +1,8 @@
-<h1 align="center">Point of Slicing Cafe</h1>
+<p align="center">
+ <h1 align="center">Point of Slicing Cafe</h1>
 [![React.js](https://img.shields.io/badge/React.js-0.01-blue)](https://reactjs.org/docs/create-a-new-react-app.html)
+<p>
+
 
 
 
