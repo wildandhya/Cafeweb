@@ -14,7 +14,7 @@
 
 ## Description
 
-Point of Slicing Cafe is a website application that is intended for admins and cashiers to manage various menus such as food and beverages
+Cafe is a website application that can make it easier for customers to choose their favorite food or drink directly from our website
 
 ## Features
 
