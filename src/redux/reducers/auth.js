@@ -50,7 +50,7 @@ const authReducer = (prevState = initialState, { type, payload }) => {
       return {
         ...prevState,
         isRejected: true,
-        error: payload.response.data,
+        error: payload.response,
         isPending: false,
         isLogged: false,
       };
