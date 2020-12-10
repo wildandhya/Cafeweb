@@ -17,7 +17,7 @@
 - [Release APK](#release-apk)
 - [Related Project](#related-project)
 
-##Description
+## Description
 Point of Slicing Cafe is a website application that is intended for admins and cashiers to manage various menus such as food and beverages
 
 ## Features
