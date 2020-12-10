@@ -1,9 +1,9 @@
 <!-- @format -->
 
-<p align="center">
- Point of Slicing Cafe
-<img src="https://img.shields.io/badge/Build%20with-React%20.js-61dbfb?style=popout&logo=react" align="center">
-<p>
+<div align="center">
+ <h1>Point of Slicing Cafe<h1>
+ <img src="https://img.shields.io/badge/Build%20with-React%20.js-61dbfb?style=popout&logo=react" align="center">
+<div>
 
 ## Contents
 
