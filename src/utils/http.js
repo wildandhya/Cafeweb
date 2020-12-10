@@ -2,7 +2,7 @@
 
 import Axios from "axios";
 
-export const URL = "http://172.17.62.110:8000";
+export const URL = "http://3.87.168.244:8080";
 
 export const registerApi = (data) => {
   return Axios.post(`${URL}/register`, data);
