@@ -2,17 +2,19 @@
 
 
 
-Note App is a simple note application specially for backend only. Built with NodeJs using the ExpressJs Framework.
-Express.js is a web application framework for Node.js. [More about Express](https://en.wikipedia.org/wiki/Express.js)
+Point of Slicing Cafe is a website application that is intended for admins and cashiers to manage various menus such as food and beverages
 ## Built With
 [![React.js](https://img.shields.io/badge/React.js-0.01-blue)](https://reactjs.org/docs/create-a-new-react-app.html)
 
 
-## Requirements
-1. <a href="https://nodejs.org/en/download/">Node Js</a>
-2. Node_modules
-3. <a href="https://www.getpostman.com/">Postman</a>
-4. Web Server (ex. localhost)
+## Features
+1. Authentication (Login & Register)
+2. Add New Menu
+3. Update Menu
+4. Delete Menu
+5. Checkout Menu
+6. Logout
+
 
 ## How to run the app ?
 1. Open app's directory in CMD or Terminal
@@ -24,40 +26,3 @@ Express.js is a web application framework for Node.js. [More about Express](http
 7. Choose HTTP Method and enter request url.(ex. localhost:3000/notes)
 8. You can see all the end point [here](#end-point)
 
-## Set up .env file
-Open .env file on your favorite code editor, and copy paste this code below :
-```
-PORT=3000
-HOST=localhost
-USER=root // default
-PASS= // default
-DATABASE=note
-NODE_ENV=development node server.js
-```
-
-## End Point
-**1. GET**
-* `/notes`
-* `/notes?search=lorem&sort=ASC&limit=5&page=1`
-* `/note/:id` (Get note by id)
-* `/categories`
-* `/categories?search=Diary`
-* `/category/:id` (Get category by id)
-
-
-**2. POST**
-* `/note`
-    * ``` { "title": "Party", "note": "Herman's Party at 19.00", "category": 1 } ```
-
-* `/category`
-    * ``` { "categoryName": "Category6" } ```
-
-**3. PATCH**
-* `/note/:id` (Update note by id)
-   * ``` { "title": "Party", "note": "Herman's Party at 18.00", "category": 2 } ```
-* `/category/:id` (Update category by id)
-   * ``` { "categoryName": "Category8" } ```
-
-**4. DELETE**
-* `/note/:id` (Delete note by id)
-* `/category/:id` (Delete category by id)
